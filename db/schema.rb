@@ -10,10 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125211025) do
+ActiveRecord::Schema.define(version: 20161208150115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["product_id"], name: "index_carts_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "phone"
+    t.datetime "birthdate"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "subfamily_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["subfamily_id"], name: "index_families_on_subfamily_id", using: :btree
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "sku"
+    t.string   "state"
+    t.integer  "subfamily_id"
+    t.integer  "supplier_id"
+    t.integer  "brand_id"
+    t.integer  "purchasing_price"
+    t.float    "coefficient"
+    t.integer  "discount_rate"
+    t.integer  "price"
+    t.integer  "weight"
+    t.integer  "stock"
+    t.string   "description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
+    t.index ["subfamily_id"], name: "index_products_on_subfamily_id", using: :btree
+    t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
+  end
+
+  create_table "subfamilies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +100,10 @@ ActiveRecord::Schema.define(version: 20161125211025) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "carts", "products"
+  add_foreign_key "carts", "users"
+  add_foreign_key "families", "subfamilies"
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "subfamilies"
+  add_foreign_key "products", "suppliers"
 end

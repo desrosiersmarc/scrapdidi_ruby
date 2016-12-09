@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sku: MyString
+  state: MyString
+  subfamily: one
+  supplier: one
+  brand: one
+  purchasing_price: 
+  coefficient: 1.5
+  discount_rate: 1
+  price: 1
+  weight: 1
+  stock: 1
+  description: MyString
+
+two:
+  name: MyString
+  sku: MyString
+  state: MyString
+  subfamily: two
+  supplier: two
+  brand: two
+  purchasing_price: 
+  coefficient: 1.5
+  discount_rate: 1
+  price: 1
+  weight: 1
+  stock: 1
+  description: MyString
