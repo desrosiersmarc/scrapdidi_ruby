@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for(@product) do |f| %>
+          <%= f.error_notification %>
+          <% if @product.errors.any? %>
+            <%= @product.errors.full_messages.join("") %>
+          <% end %>
+
+          <%= f.input :name %>
+          <%= f.input :sku %>
+          <%= f.input :state %>
+          <%= f.input :subfamily %>
+          <%= f.input :supplier %>
+          <%= f.input :brand %>
+          <%= f.input :purchasing_price %>
+          <%= f.input :coefficient %>
+          <%= f.input :discount_rate %>
+          <%= f.input :price %>
+          <%= f.input :weight %>
+          <%= f.input :stock %>
+          <%= f.input :description %>
+          <%= f.input :photos, as: :attachinary %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+  </div>
+</div>
