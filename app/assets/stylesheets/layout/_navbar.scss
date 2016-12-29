@@ -4,10 +4,11 @@
   background: white;
   transition: all 0.3s ease;
   display: flex;
-  height: 70px;
+  height: 42px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 /* Optional class to fix the navbar on top */
@@ -72,6 +73,7 @@
   justify-content: flex-end;
   padding: 0 10px;
   position: relative;
+  height:40px;
 }
 .navbar-wagon-search-btn {
   line-height: 40px;
@@ -128,4 +130,18 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.navbar-logo-search-cart {
+  text-align: center;
+  background-color: #FD4E68;
+
+  display: flex;
+  align-items: center;
+
+  height: 100px;
+  img {
+    height: 100px;
+    width: 66px;
+  }
 }
