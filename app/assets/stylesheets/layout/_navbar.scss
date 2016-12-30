@@ -145,3 +145,15 @@
     width: 66px;
   }
 }
+.navbar-links {
+  display: flex;
+}
+
+.navbar-buttons-menu {
+  padding: 10px;
+}
+
+.navbar-buttons-menu:hover {
+  color: #FFF;
+  background-color: #FD4E68;
+}
