@@ -17,7 +17,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
-gem 'forest_liana'
+# gem 'forest_liana'
 gem 'cloudinary', '1.1.0'
 
 gem "attachinary", github: "assembler/attachinary"
