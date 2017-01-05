@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new]
+  skip_before_action :authenticate_user!, only: [:new, :show]
 
   def index
   end

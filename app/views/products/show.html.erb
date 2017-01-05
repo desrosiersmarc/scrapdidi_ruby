@@ -1,4 +1,35 @@
-<h2>Show page for Product</h2>
-<h3>Is it ok ?</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p>
+        Nom:
+        <%= @product.name %>
+      </p>
+      <p>
+        Référence:
+        <%= @product.sku %>
+      </p>
+      <p>
+        Marque:
+        <%= @product.brand.name %>
+      </p>
+      <p>
+        Prix:
+        <%= @product.price/100 %>€
+      </p>
+      <p>
+        Poids
+        <%= @product.weight %>g
+      </p>
+      <p>
+        Stock:
+        <%= @product.stock %>
+      </p>
+      <p>
+        Description:
+        <%= @product.description %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= @product.inspect %>
