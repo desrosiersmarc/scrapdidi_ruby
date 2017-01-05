@@ -48,7 +48,7 @@ i = 0
     discount_rate: '',
     price:  rand(1000),
     weight: '',
-    stock: '',
+    stock: rand(1..9),
     description: '',
     )
   i = i +1

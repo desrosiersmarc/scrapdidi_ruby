@@ -20,7 +20,8 @@
           <div class="item home-slideshow">
             <%= image_tag "logo.png" %>
             <div class="carousel-caption">
-              Logo
+              <h3>Scrapdidi</h3>
+              <p>Ce que vous ne trouverez pas ailleurs est ici</p>
             </div>
           </div>
           <div class="item home-slideshow">
@@ -47,14 +48,20 @@
 <div class="container">
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= link_to product_path(product), class: "btn" do %>
-          Brand : <%= product.brand.name %>
-          <%= product.name %>
-          <%= product.stock %>
-          <%= product.price/100.to_f %>€
-          <p class="btn btn-danger btn-block">Ajouter au panier</p>
-        <% end %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card">
+          <%= link_to product_path(product), class: "btn" do %>
+            <%= image_tag "logo.png" %>
+            <p>
+              <%= product.name %>
+            </p>
+            <p>
+              <%= product.price/100.to_f %>€ |
+              <%= product.stock %>
+            </p>
+            <p class="btn btn-primary btn-block">Ajouter au panier</p>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

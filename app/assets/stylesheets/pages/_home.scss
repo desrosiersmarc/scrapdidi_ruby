@@ -5,5 +5,17 @@
 
 .home-slideshow {
   height: 425px;
+}
 
+.card {
+  img {
+    width: 95%;
+  }
+  height: 322px;
+  border: solid 1px grey;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 3px;
+  display: flex;
+  align-items: flex-end;
 }
