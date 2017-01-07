@@ -1,1 +1,20 @@
 // Your footer style
+.wrapper-footer {
+  background-color: $gray-footer;
+  color: $gray-light;
+  padding: 15px;
+  i {
+    font-size: 20px;
+  }
+}
+.newsletter {
+  display: flex;
+  align-items: center;
+  input {
+    // width: 80%;
+  }
+}
+.links-footer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
