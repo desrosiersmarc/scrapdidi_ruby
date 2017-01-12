@@ -45,24 +45,75 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="wrapper-home-new">
   <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-xs-12 col-sm-4 col-md-3">
-        <div class="card">
-          <%= link_to product_path(product), class: "btn" do %>
-            <%= image_tag "logo.png" %>
-            <p>
-              <%= product.name %>
-            </p>
-            <p>
-              <%= product.price/100.to_f %>€ |
-              <%= product.stock %>
-            </p>
-            <p class="btn btn-primary btn-block">Ajouter au panier</p>
-          <% end %>
+    <div class="container">
+      <h2>Nouveautés</h2>
+      <% @products_new.each do |product| %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="card">
+            <%= link_to product_path(product), class: "btn" do %>
+              <%= image_tag "logo.png" %>
+              <p>
+                <%= product.name %>
+              </p>
+              <p>
+                <%= product.price/100.to_f %>€ |
+                <%= product.stock %>
+              </p>
+              <p class="btn btn-primary btn-block">Ajouter au panier</p>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper-home-topsell">
+  <div class="row">
+    <div class="container">
+      <h2>Meilleures ventes</h2>
+      <% @products_topsell.each do |product| %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="card">
+            <%= link_to product_path(product), class: "btn" do %>
+              <%= image_tag "logo.png" %>
+              <p>
+                <%= product.name %>
+              </p>
+              <p>
+                <%= product.price/100.to_f %>€ |
+                <%= product.stock %>
+              </p>
+              <p class="btn btn-primary btn-block">Ajouter au panier</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper-home-promotion">
+  <div class="row">
+    <div class="container">
+      <h2>Promotions</h2>
+      <% @products_promotion.each do |product| %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="card">
+            <%= link_to product_path(product), class: "btn" do %>
+              <%= image_tag "logo.png" %>
+              <p>
+                <%= product.name %>
+              </p>
+              <p>
+                <%= product.price/100.to_f %>€ |
+                <%= product.stock %>
+              </p>
+              <p class="btn btn-primary btn-block">Ajouter au panier</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

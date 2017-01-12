@@ -39,11 +39,11 @@ puts ":ok"
 
 puts "Create products"
 i = 0
-10.times do
+20.times do
   Product.create(
     name: 'Produit-' + i.to_s,
     sku: rand(1000000),
-    state: ['Ok', 'NOK'].sample,
+    state: ['new', 'promotion', 'topsell'].sample,
     subfamily_id: Subfamily.all.sample.id,
     supplier_id: Supplier.all.sample.id,
     brand_id: Brand.all.sample.id,
