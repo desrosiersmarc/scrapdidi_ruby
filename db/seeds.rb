@@ -6,32 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Destroy all elements"
+print "Destroy all elements"
   Cart.destroy_all
   Product.destroy_all
   Subfamily.destroy_all
   Brand.destroy_all
+puts ":ok"
 
-puts "Create subfamilies"
+print "Create subfamilies"
   ['Scrapboking', 'Tea', 'Coffee'].each do |subfamily|
     Subfamily.create(
       name: subfamily
       )
   end
+puts ":ok"
 
-puts "Create suppliers"
+print "Create suppliers"
   ['Michelin', 'Goodyear', 'Hankook'].each do |supplier|
     Supplier.create(
         name: supplier
       )
   end
+puts ":ok"
 
-puts "Create brands"
+print "Create brands"
   ['Sony', 'Kenwood', 'Pioneer'].each do |brand|
     Brand.create(
         name: brand
       )
   end
+puts ":ok"
 
 puts "Create products"
 i = 0
@@ -50,6 +54,8 @@ i = 0
     weight: '',
     stock: rand(1..9),
     description: '',
+    home: ['yes', 'no'].sample,
     )
   i = i +1
+  print '*'
 end
