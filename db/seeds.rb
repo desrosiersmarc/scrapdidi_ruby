@@ -53,7 +53,7 @@ i = 0
     price:  rand(1000),
     weight: '',
     stock: rand(1..9),
-    description: '',
+    description: Faker::Lorem.paragraphs(3, false),
     home: ['yes', 'no'].sample,
     )
   i = i +1
