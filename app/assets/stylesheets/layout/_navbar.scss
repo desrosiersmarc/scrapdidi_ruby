@@ -10,6 +10,9 @@
   justify-content: space-between;
   flex-direction: row-reverse;
   background-color: #CEE3F6;
+  a {
+    text-decoration: none;
+  }
 }
 
 /* Optional class to fix the navbar on top */

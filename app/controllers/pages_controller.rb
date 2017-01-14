@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :soon ]
+  skip_before_action :authenticate_user!, only: [ :home, :basket ]
 
   def home
     @products = Product.where("home = ?", "yes")

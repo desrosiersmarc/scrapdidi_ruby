@@ -2,9 +2,6 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-
-
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
@@ -81,8 +78,10 @@
       </div>
       <div class="col-xs-12 col-sm-3">
         <div>
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          Mon Panier
+          <%= link_to basket_path do%>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Mon Panier
+          <% end %>
         </div>
       </div>
     </div>
@@ -90,11 +89,13 @@
 </div>
 <div class="container">
   <div class="navbar-links">
-    <p class="navbar-buttons-menu">
-      <i class="fa fa-home" aria-hidden="true"></i>
-    </p>
+    <%= link_to root_path do %>
+      <p class="navbar-buttons-menu">
+        <i class="fa fa-home" aria-hidden="true"></i>
+      </p>
+    <% end %>
     <p class="navbar-buttons-menu">scrapbooking</p>
-    <p class="navbar-buttons-menu">blog</p>
+    <a href="https://scrapamandine.wordpress.com/" target ="_blank" class="navbar-buttons-menu">blog</a>
   </div>
 </div>
 
