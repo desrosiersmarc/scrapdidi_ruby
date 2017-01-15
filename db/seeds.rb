@@ -21,6 +21,14 @@ print "Create subfamilies"
   end
 puts ":ok"
 
+print "Create families"
+  ['Dies', 'Embossage', 'Papiers', 'Pochoirs', 'Tampons'].each do |family|
+    Family.create(
+      name: family
+      )
+  end
+puts ":ok"
+
 print "Create suppliers"
   ['Michelin', 'Goodyear', 'Hankook'].each do |supplier|
     Supplier.create(
