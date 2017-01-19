@@ -147,6 +147,7 @@
 }
 .navbar-links {
   display: flex;
+  font-size: 20px;
 }
 
 .navbar-buttons-menu {
@@ -155,5 +156,9 @@
 
 .navbar-buttons-menu:hover {
   color: #FFF;
-  background-color: #FD4E68;
+  background-color: $pink-dark;
+}
+
+.navbar-menu-bg-color {
+  background-color: $pink;
 }

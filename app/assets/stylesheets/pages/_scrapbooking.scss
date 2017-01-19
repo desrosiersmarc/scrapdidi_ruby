@@ -1,0 +1,15 @@
+.sous-menu-btn {
+  background-color: $blue-light;
+  border: 1px solid $pink;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  margin: 5px;
+}
+
+.sous-menu-min-height {
+  min-height: 90vh;
+  h2 {
+    color: $blue;
+  }
+}
