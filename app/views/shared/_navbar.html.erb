@@ -60,33 +60,36 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="navbar-logo-search-cart">
-      <div class="hidden-xs col-md-2">
-        <%= link_to root_path, class: "navbar-wagon-brand" do %>
-          <%= image_tag "logo.png" %>
-        <% end %>
-      </div>
-      <div class="col-xs-12 col-sm-7">
-        <form action="" class="navbar-wagon-search">
-          <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-          <button type="submit" class="navbar-wagon-search-btn">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-      </div>
-      <div class="col-xs-12 col-sm-3">
-        <div>
-          <%= link_to basket_path do%>
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            Mon Panier
+<div class="navbar-menu-bg-color">
+  <div class="container">
+    <div class="row">
+      <div class="navbar-logo-search-cart">
+        <div class="hidden-xs col-md-2">
+          <%= link_to root_path, class: "navbar-wagon-brand" do %>
+            <%= image_tag "logo.png" %>
           <% end %>
+        </div>
+        <div class="col-xs-12 col-sm-7">
+          <form action="" class="navbar-wagon-search">
+            <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+            <button type="submit" class="navbar-wagon-search-btn">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+          <div>
+            <%= link_to basket_path do%>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              Mon Panier
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="navbar-links">
     <%= link_to root_path do %>
