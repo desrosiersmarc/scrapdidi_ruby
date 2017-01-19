@@ -22,16 +22,16 @@
 }
 
 .wrapper-home-new {
-  background-color: #F3CFD9;
+  background-color: $pink;
   h2 {
     text-align: center;
-    color: #CE1483;
+    color: $pink-dark;
     font-weight: bold;
   }
 }
 
 .wrapper-home-topsell {
-  background-color: $gray-lighter;
+  background-color: $blue-light;
   h2 {
     text-align: center;
     color: #CE1483;
@@ -40,10 +40,10 @@
 }
 
 .wrapper-home-promotion {
-  background-color: #F3CFD9;
+  background-color: $pink;
   h2 {
     text-align: center;
-    color: #CE1483;
+    color: $pink-dark;
     font-weight: bold;
   }
 }
