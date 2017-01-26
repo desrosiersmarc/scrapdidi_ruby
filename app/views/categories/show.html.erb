@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="menu-items">
+        <% @category.ancestors.each do |category| %>
+          <%= link_to category.name, category_path(category) %>
+          |
+        <% end %>
+          <strong><%= @category.name %> (<%= @products.size %>)</strong>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="menu-items">
+      <%= arranged_tree_as_list(@category.children.arrange) do |category| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= link_to category_path(category), class: 'btn btn-primary btn-block' do %>
+            <%= category.name %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card">
+          <%= link_to product_path(product), class: "btn" do %>
+            <%= image_tag "logo.png" %>
+            <p>
+              <%= product.name %>
+            </p>
+            <p>
+              <%= product.price/100.to_f %>€ |
+              <%= product.stock %>
+            </p>
+            <p class="btn btn-primary btn-block">Ajouter au panier</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

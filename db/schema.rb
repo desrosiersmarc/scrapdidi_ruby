@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112204840) do
+ActiveRecord::Schema.define(version: 20170126105105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 20170112204840) do
     t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "ancestry"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -57,19 +64,10 @@ ActiveRecord::Schema.define(version: 20170112204840) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "families", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "subfamily_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["subfamily_id"], name: "index_families_on_subfamily_id", using: :btree
-  end
-
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "sku"
     t.string   "state"
-    t.integer  "subfamily_id"
     t.integer  "supplier_id"
     t.integer  "brand_id"
     t.integer  "purchasing_price"
@@ -82,15 +80,10 @@ ActiveRecord::Schema.define(version: 20170112204840) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "home"
+    t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
-    t.index ["subfamily_id"], name: "index_products_on_subfamily_id", using: :btree
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
-  end
-
-  create_table "subfamilies", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -118,8 +111,7 @@ ActiveRecord::Schema.define(version: 20170112204840) do
 
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
-  add_foreign_key "families", "subfamilies"
   add_foreign_key "products", "brands"
-  add_foreign_key "products", "subfamilies"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "suppliers"
 end
