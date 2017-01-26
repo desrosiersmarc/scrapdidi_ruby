@@ -147,7 +147,14 @@
 }
 .navbar-links {
   display: flex;
+  align-items: baseline;
   font-size: 20px;
+  ul li {
+    display: inline;
+  }
+  li:hover {
+    background-color: red;
+  }
 }
 
 .navbar-buttons-menu {

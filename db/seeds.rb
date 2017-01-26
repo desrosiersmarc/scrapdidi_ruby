@@ -9,24 +9,8 @@
 print "Destroy all elements"
   Cart.destroy_all
   Product.destroy_all
-  Subfamily.destroy_all
+  Category.destroy_all
   Brand.destroy_all
-puts ":ok"
-
-print "Create subfamilies"
-  ['Scrapboking', 'Tea', 'Coffee'].each do |subfamily|
-    Subfamily.create(
-      name: subfamily
-      )
-  end
-puts ":ok"
-
-print "Create families"
-  ['Dies', 'Embossage', 'Papiers', 'Pochoirs', 'Tampons'].each do |family|
-    Family.create(
-      name: family
-      )
-  end
 puts ":ok"
 
 print "Create suppliers"
@@ -44,29 +28,6 @@ print "Create brands"
       )
   end
 puts ":ok"
-
-puts "Create products"
-i = 0
-20.times do
-  Product.create(
-    name: 'Produit-' + i.to_s,
-    sku: rand(1000000),
-    state: ['new', 'promotion', 'topsell'].sample,
-    subfamily_id: Subfamily.all.sample.id,
-    supplier_id: Supplier.all.sample.id,
-    brand_id: Brand.all.sample.id,
-    purchasing_price: '',
-    coefficient: '',
-    discount_rate: '',
-    price:  rand(1000),
-    weight: '',
-    stock: rand(1..9),
-    description: Faker::Lorem.paragraphs(3, false),
-    home: ['yes', 'no'].sample,
-    )
-  i = i +1
-  print '*'
-end
 
 puts "Create Category"
 scrapbooking = Category.create!(name: "Scrapbooking")
@@ -98,4 +59,31 @@ maksing_tape = Category.create!(name: "Masking tape", parent: embelissements)
 napperons = Category.create!(name: "Napperons", parent: embelissements)
 perles_strass = Category.create!(name: "Perles / strass", parent: embelissements)
 trombones_clips = Category.create!(name: "Trombones / Clips", parent: embelissements)
+
+puts ":ok"
+
+puts "Create products"
+i = 0
+50.times do
+  Product.create(
+    # name: 'Produit-' + i.to_s,
+    name: Faker::Superhero.name,
+    sku: rand(1000000),
+    state: ['new', 'promotion', 'topsell'].sample,
+    category: Category.all.sample,
+    supplier_id: Supplier.all.sample.id,
+    brand_id: Brand.all.sample.id,
+    purchasing_price: '',
+    coefficient: '',
+    discount_rate: '',
+    price:  rand(1000),
+    weight: '',
+    stock: rand(1..9),
+    description: Faker::Lorem.paragraphs(3, false),
+    home: ['yes', 'no'].sample,
+    )
+  i = i +1
+  print '*'
+end
+
 

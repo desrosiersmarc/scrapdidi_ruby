@@ -25,11 +25,11 @@ class ProductsController < ApplicationController
 
   def params_product
     params.require(:product).permit(
-        :name, :sku, :state, :subfamily_id,
+        :name, :sku, :state,
         :supplier_id, :brand_id, :purchasing_price,
         :coefficient, :discount_rate,
         :price, :weight, :stock,
-        :description, :brand_id, :subfamily_id,
+        :description, :brand_id,
         :supplier_id, photos: [] )
   end
 end
