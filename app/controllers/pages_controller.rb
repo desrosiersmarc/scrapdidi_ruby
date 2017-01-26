@@ -6,9 +6,8 @@ class PagesController < ApplicationController
     @products_new = @products.where("state = ?", "new")
     @products_promotion = @products.where("state = ?", "promotion")
     @products_topsell = @products.where("state = ?", "topsell")
+
+    @categories = Category.where("ancestry is null").arrange
   end
 
-  def scrapbooking
-    @families = Family.all
-  end
 end

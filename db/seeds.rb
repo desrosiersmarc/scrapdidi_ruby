@@ -67,3 +67,35 @@ i = 0
   i = i +1
   print '*'
 end
+
+puts "Create Category"
+scrapbooking = Category.create!(name: "Scrapbooking")
+divers = Category.create!(name: "Divers")
+
+dies_embossage = Category.create!(name: "Dies / Embossage", parent: scrapbooking)
+embelissements = Category.create!(name: "Embelissements", parent: scrapbooking)
+papiers = Category.create!(name: "Papiers", parent: scrapbooking)
+pochoirs = Category.create!(name: "Tampons", parent: scrapbooking)
+
+dies = Category.create!(name: "Dies", parent: dies_embossage)
+embossage = Category.create!(name: "Plaques embossage", parent: dies_embossage)
+
+alaphabets = Category.create!(name: "Alphabets", parent: embelissements)
+badges = Category.create!(name: "Badges", parent: embelissements)
+bois = Category.create!(name: "Bois", parent: embelissements)
+boutons = Category.create!(name: "Boutons", parent: embelissements)
+brads = Category.create!(name: "Brads / Attaches", parent: embelissements)
+cabochons = Category.create!(name: "Cabochons en verre", parent: embelissements)
+camées = Category.create!(name: "Camées", parent: embelissements)
+charms = Category.create!(name: "Charms / Breloques", parent: embelissements)
+chipboards = Category.create!(name: "Chipboards", parent: embelissements)
+die_cuts = Category.create!(name: "Die-Cuts / Etiquettes / Tags", parent: embelissements)
+embelissements_resine = Category.create!(name: "Embelissements résine", parent: embelissements)
+embelissements_acryliques = Category.create!(name: "Embelissements acryliques", parent: embelissements)
+enamel = Category.create!(name: "Enamel / Dots / Stickers", parent: embelissements)
+fleurs = Category.create!(name: "Fleurs", parent: embelissements)
+maksing_tape = Category.create!(name: "Masking tape", parent: embelissements)
+napperons = Category.create!(name: "Napperons", parent: embelissements)
+perles_strass = Category.create!(name: "Perles / strass", parent: embelissements)
+trombones_clips = Category.create!(name: "Trombones / Clips", parent: embelissements)
+

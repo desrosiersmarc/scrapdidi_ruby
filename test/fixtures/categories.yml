@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  subfamily: one
+  product: one
 
 two:
   name: MyString
-  subfamily: two
+  product: two
