@@ -153,7 +153,8 @@
     display: inline;
   }
   li:hover {
-    background-color: red;
+    background-color: $pink-dark;
+    color: #FFF;
   }
 }
 

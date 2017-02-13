@@ -97,10 +97,14 @@
         <i class="fa fa-home" aria-hidden="true"></i>
       </p>
     <% end %>
-
-    <%= arranged_tree_as_list(@categories) do |category| %>
-      <%= link_to category.name, category_path(category) %>
+    <!-- TODO -->
+    <% if @categories.nil? %>
+    <% else %>
+      <%= arranged_tree_as_list(@categories) do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
     <% end %>
+    <!--  -->
 
 
     <a href="https://scrapamandine.wordpress.com/" target ="_blank" class="navbar-buttons-menu">blog</a>

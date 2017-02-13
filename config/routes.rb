@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/basket', to: 'pages#basket'
 
   get '/categories/*id' => 'categories#show'
-    resources :products, only: :show
+
+  resources :products, only: [:show, :index]
 
   mount Attachinary::Engine => "/attachinary"
 end
