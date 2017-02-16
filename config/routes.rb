@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get '/categories/*id' => 'categories#show'
 
-  resources :products, only: [:show, :index]
+  # resources :categories, only: :show do
+    resources :products, only: [:show, :index]
+  # end
 
   mount Attachinary::Engine => "/attachinary"
 end

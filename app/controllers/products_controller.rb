@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @categories = Category.where("ancestry is null").arrange
   end
 
   def new
