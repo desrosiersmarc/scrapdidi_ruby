@@ -98,9 +98,9 @@
       </p>
     <% end %>
 
-    <%= arranged_tree_as_list(@categories) do |category| %>
-      <%= link_to category.name, category_path(category) %>
-    <% end %>
+      <%= arranged_tree_as_list(@categories) do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
 
     <a href="https://scrapamandine.wordpress.com/" target ="_blank" class="navbar-buttons-menu">blog</a>
   </div>
