@@ -1,22 +1,16 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="menu-items">
-        <% @category.ancestors.each do |category| %>
-          <%= link_to category.name, category_path(category) %>
-          |
-        <% end %>
-          <strong><%= @category.name %> (<%= @products.size %>)</strong>
-      </div>
-    </div>
-  </div>
+  <%= render "shared/menu" %>
+
   <div class="row">
     <div class="menu-items">
       <%= arranged_tree_as_list(@category.children.arrange) do |category| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= link_to category_path(category), class: 'btn btn-primary btn-block' do %>
-            <%= category.name %>
-          <% end %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <div class="card-category">
+            <%= link_to category_path(category) do %>
+              <%= image_tag "Badges.jpg" %>
+              <%= category.name %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

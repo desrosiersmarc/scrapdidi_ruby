@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :show]
+  skip_before_action :authenticate_user!, only: [:new, :show, :index]
 
   def index
+    @product = Product.all
   end
 
   def show
     @product = Product.find(params[:id])
+    @categories = Category.where("ancestry is null").arrange
+
+    @category = Category.find(@product.category_id)
   end
 
   def new

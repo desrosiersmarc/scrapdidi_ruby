@@ -1,0 +1,14 @@
+<!-- not actually use because a problem with product  -->
+<div class="card">
+  <%= link_to product_path(product), class: "btn" do %>
+    <%= image_tag "logo.png" %>
+    <p>
+      <%= product.name %>
+    </p>
+    <p>
+      <%= product.price/100.to_f %>€ |
+      <%= product.stock %>
+    </p>
+    <p class="btn btn-primary btn-block">Ajouter au panier</p>
+  <% end %>
+</div>

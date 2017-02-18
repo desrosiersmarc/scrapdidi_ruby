@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @products_topsell = @products.where("state = ?", "topsell")
 
     @categories = Category.where("ancestry is null").arrange
+
   end
 
 end
