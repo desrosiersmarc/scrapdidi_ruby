@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   # mount ForestLiana::Engine => '/forest'
   devise_for :users
   root to: 'pages#home'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   get '/categories/*id' => 'categories#show'
 
   # resources :categories, only: :show do
-    resources :products, only: [:show, :index]
+    resources :products, only: [:new, :create, :show, :index]
   # end
 
   mount Attachinary::Engine => "/attachinary"
