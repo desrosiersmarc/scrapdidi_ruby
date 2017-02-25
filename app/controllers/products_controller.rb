@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @suppliers = Supplier.all
+    @brands = Brand.all
   end
 
   def create

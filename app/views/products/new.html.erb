@@ -9,10 +9,10 @@
 
           <%= f.input :name %>
           <%= f.input :sku %>
-          <%= f.input :state %>
+          <%= f.input :state, collection: ['new', 'promotion', 'topsell'] %>
           <%#= f.input :subfamily %>
-          <%= f.input :supplier %>
-          <%= f.input :brand %>
+          <%= f.input :supplier, collection: @suppliers %>
+          <%= f.input :brand, collection: @brands %>
           <%= f.input :purchasing_price %>
           <%= f.input :coefficient %>
           <%= f.input :discount_rate %>
@@ -20,6 +20,7 @@
           <%= f.input :weight %>
           <%= f.input :stock %>
           <%= f.input :description %>
+          <%= f.input :home, collection: ["yes", "no"] %>
           <%= f.input :photos, as: :attachinary %>
           <%= f.button :submit %>
         <% end %>
