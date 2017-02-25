@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @suppliers = Supplier.all
     @brands = Brand.all
+    @list_categories = Category.all
   end
 
   def create
@@ -35,8 +36,7 @@ class ProductsController < ApplicationController
         :supplier_id, :brand_id, :purchasing_price,
         :coefficient, :discount_rate,
         :price, :weight, :stock,
-        :description, :brand_id,
-        :supplier_id, photos: [] )
+        :description, :home, :category_id, photos: [] )
   end
 end
 

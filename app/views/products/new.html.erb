@@ -10,9 +10,9 @@
           <%= f.input :name %>
           <%= f.input :sku %>
           <%= f.input :state, collection: ['new', 'promotion', 'topsell'] %>
-          <%#= f.input :subfamily %>
-          <%= f.input :supplier, collection: @suppliers %>
-          <%= f.input :brand, collection: @brands %>
+          <%= f.input :supplier_id, collection: @suppliers %>
+          <%= f.input :brand_id, collection: @brands %>
+          <%= f.input :category_id, collection: @list_categories %>
           <%= f.input :purchasing_price %>
           <%= f.input :coefficient %>
           <%= f.input :discount_rate %>

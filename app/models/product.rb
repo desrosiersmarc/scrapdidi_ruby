@@ -8,12 +8,17 @@ class Product < ApplicationRecord
   validates :state, presence: true
   validates :supplier_id, presence: true
   validates :brand_id, presence: true
-  validates :price, presence: true
-  validates :weight, presence: true
-  validates :stock, presence: true
+  validates :price,
+            presence: true, numericality: { only_integer: true,
+            message: 'Le prix doit être en centimes 190 pour 1,90€'}
+  validates :weight,
+            presence: true, numericality: { only_integer: true,
+            message: 'Le poids doit être en grammes'}
+  validates :stock,
+            presence: true, numericality: { only_integer: true,
+            message: 'Le stock doit être un entier'}
   validates :description, presence: true
-  validates :home, presence: true, inclusion: {in: %w(yes no),
-            message: "%{value} n'est pas valide"}
+  validates :home, presence: true
   validates :category_id, presence: true
 
   has_attachments :photos, maximum: 4
