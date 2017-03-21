@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :supplier
   belongs_to :brand
   belongs_to :category
+  has_many :order_items
 
   validates :name, :sku, presence: true
   validates :state, presence: true

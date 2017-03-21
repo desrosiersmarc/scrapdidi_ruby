@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
     @categories = Category.where("ancestry is null").arrange
 
     @category = Category.find(@product.category_id)
+    raise
   end
 
   def new

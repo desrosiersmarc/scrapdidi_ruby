@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 print "Destroy all elements"
-  Cart.destroy_all
+  Order.destroy_all
   Product.destroy_all
   Category.destroy_all
   Brand.destroy_all
@@ -81,9 +81,19 @@ i = 0
     stock: rand(1..9),
     description: Faker::Lorem.paragraphs(3, false),
     home: ['yes', 'no'].sample,
+    active: true
     )
   i = i +1
   print '*'
 end
+puts ":ok"
+
+puts "Create Order Status"
+  OrderStatus.delete_all
+  OrderStatus.create! id: 1, name: "In Progress"
+  OrderStatus.create! id: 2, name: "Placed"
+  OrderStatus.create! id: 3, name: "Shipped"
+  OrderStatus.create! id: 4, name: "Cancelled"
+puts ":ok"
 
 
