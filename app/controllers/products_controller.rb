@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :show, :index]
 
   def index
-    @product = Product.all
+    @products = Product.all
     @order_item = current_order.order_items.new
   end
 
@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
     @categories = Category.where("ancestry is null").arrange
 
     @category = Category.find(@product.category_id)
-    raise
   end
 
   def new

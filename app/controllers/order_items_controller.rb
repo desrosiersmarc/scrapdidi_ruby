@@ -1,7 +1,8 @@
 class OrderItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create, :update, :destroy]
   def create
     @order = current_order
-    @order_item = @order.order_items.new(order_items_params)
+    @order_item = @order.order_items.new(order_item_params)
     @order.save
     session[:order_id] = @order.id
   end
@@ -21,6 +22,6 @@ class OrderItemsController < ApplicationController
   end
 private
   def order_item_params
-    params.require(:order_items).permit(:quantity, :product_id)
+    params.require(:order_item).permit(:quantity, :product_id)
   end
 end
