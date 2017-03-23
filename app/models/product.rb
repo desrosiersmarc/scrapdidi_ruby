@@ -23,6 +23,8 @@ class Product < ApplicationRecord
   validates :category_id, presence: true
 
   has_attachments :photos, maximum: 4
+
+  default_scope { where(active: true)}
 end
 
 
