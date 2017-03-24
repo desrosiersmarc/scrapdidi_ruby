@@ -170,3 +170,40 @@
 .navbar-menu-bg-color {
   background-color: $pink;
 }
+
+.cart-text {
+  i {
+    color: $pink-dark;
+    font-size: 40px;
+  }
+}
+
+.cart-container{
+  position: relative;
+  height: 100px;
+}
+.cart-size{
+  height:25px;
+  width:25px;
+  border-radius:50%;
+  background-color: $pink-dark;
+  color: #FFF;
+  font-size: 14px;
+  position: relative;
+  top: -30px;
+  left: 48px;
+  text-align: center;
+
+}
+.cart-price{
+  position: relative;
+  top: -46px;
+  left: 70px;
+  width: 100px;
+
+}
+.cart-basket {
+  position: relative;
+  top: 20px;
+  left: -100px;
+}

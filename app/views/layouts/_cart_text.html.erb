@@ -1,1 +1,19 @@
-<%= link_to "#{current_order.order_items.size} Items in cart (#{number_to_currency current_order.subtotal})", cart_path, class: "btn btn-link"  %>
+<%= link_to cart_path do %>
+  <div class="cart-container">
+    <div class="cart-basket">
+      <i class='fa fa-shopping-basket' aria-hidden='true'></i>
+    </div>
+    <div class="cart-size">
+      <p>
+        <%= current_order.order_items.size %>
+      </p>
+    </div>
+    <div class="cart-price">
+      <p>
+        Mon Panier
+        <%= number_to_currency current_order.subtotal/100 %>€
+      </p>
+    </div>
+  </div>
+<% end %>
+<!-- TODO work on mobile view -->
