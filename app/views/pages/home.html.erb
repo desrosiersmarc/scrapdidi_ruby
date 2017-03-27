@@ -50,24 +50,7 @@
     <div class="container">
       <h2>Nouveautés</h2>
       <% @products_new.each do |product| %>
-        <div class="col-xs-12 col-sm-4 col-md-3">
-          <div class="card">
-            <%= link_to product_path(product), class: "btn" do %>
-              <%= image_tag "logo.png" %>
-              <p>
-                <%= product.name %>
-              </p>
-              <p>
-                <%= product.price/100.to_f %>€ |
-                <%= product.stock %>
-              </p>
-              <p class="btn btn-primary btn-block">Ajouter au panier</p>
-
-
-
-            <% end %>
-          </div>
-        </div>
+        <%= render "products/product_card", product: product, order_item: @order_item %>
       <% end %>
     </div>
   </div>
@@ -77,21 +60,7 @@
     <div class="container">
       <h2>Meilleures ventes</h2>
       <% @products_topsell.each do |product| %>
-        <div class="col-xs-12 col-sm-4 col-md-3">
-          <div class="card">
-            <%= link_to product_path(product), class: "btn" do %>
-              <%= image_tag "logo.png" %>
-              <p>
-                <%= product.name %>
-              </p>
-              <p>
-                <%= product.price/100.to_f %>€ |
-                <%= product.stock %>
-              </p>
-              <p class="btn btn-primary btn-block">Ajouter au panier</p>
-            <% end %>
-          </div>
-        </div>
+        <%= render "products/product_card", product: product, order_item: @order_item %>
       <% end %>
     </div>
   </div>
@@ -101,21 +70,7 @@
     <div class="container">
       <h2>Promotions</h2>
       <% @products_promotion.each do |product| %>
-        <div class="col-xs-12 col-sm-4 col-md-3">
-          <div class="card">
-            <%= link_to product_path(product), class: "btn" do %>
-              <%= helper_picture_tag(product) %>
-              <p>
-                <%= product.name %>
-              </p>
-              <p>
-                <%= product.price/100.to_f %>€ |
-                <%= product.stock %>
-              </p>
-              <p class="btn btn-primary btn-block">Ajouter au panier</p>
-            <% end %>
-          </div>
-        </div>
+        <%= render "products/product_card", product: product, order_item: @order_item %>
       <% end %>
     </div>
   </div>

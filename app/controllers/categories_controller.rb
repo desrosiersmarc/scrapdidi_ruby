@@ -7,6 +7,8 @@ class CategoriesController < ApplicationController
     @category = Category.find(category_id)
 
     @products = @category.products
+
+    @order_item = current_order.order_items.new
   end
 end
 

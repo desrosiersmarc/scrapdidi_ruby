@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @order_item = current_order.order_items.new
     @categories = Category.where("ancestry is null").arrange
-
     @category = Category.find(@product.category_id)
   end
 
