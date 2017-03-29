@@ -5,8 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def child_category
+  category_number = Category.all.sample
+
+  if category_number.has_children?
+      puts ">#{category_number.id}<"
+      category_number = Category.find(category_number.child_ids.last)
+  end
+    category_number
+end
+
 
 print "Destroy all elements"
+  OrderItem.destroy_all
   Order.destroy_all
   Product.destroy_all
   Category.destroy_all
@@ -29,7 +40,7 @@ print "Create brands"
   end
 puts ":ok"
 
-puts "Create Category"
+print "Create Category"
 scrapbooking = Category.create!(name: "Scrapbooking")
 divers = Category.create!(name: "Divers")
 
@@ -68,7 +79,7 @@ puts "Create products"
     name: Faker::Superhero.name,
     sku: rand(1000000),
     state: ['new', 'promotion', 'topsell'].sample,
-    category: Category.all.sample,
+    category: child_category,
     supplier_id: Supplier.all.sample.id,
     brand_id: Brand.all.sample.id,
     purchasing_price: '',
@@ -97,5 +108,4 @@ puts "Create Users"
   create_account = User.new(email: 'md@md.com', password: '123soleil')
   create_account.save
 puts "User #{create_account.email} is created"
-
 
