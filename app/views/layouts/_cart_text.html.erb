@@ -4,7 +4,7 @@
       <i class='fa fa-shopping-basket' aria-hidden='true'></i>
     </div>
     <div class="cart-size">
-        <%= current_order.order_items.size %>
+        <%= current_order.order_items.collect{|oi| oi.quantity}.sum %>
     </div>
     <div class="cart-price">
       <p>
