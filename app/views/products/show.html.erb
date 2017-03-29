@@ -17,15 +17,20 @@
       <div class="price-stock-zone">
         <div class="btn btn-primary price-stock">
           Prix:
-          <%= @product.price/100 %>€
+          <%= number_to_currency(@product.price/100.00, unit:"€", format: "%n %u") %>
         </div>
         <div class="btn btn-success price-stock">
           Stock:
           <%= @product.stock %>
         </div>
       </div>
-      <p class="btn btn-primary btn-block">Ajouter au panier</p>
+      <p>
+        <%= simple_form_for @order_item, remote: true do |f| %>
+          <%= f.hidden_field :quantity, value: 1 %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.submit "Ajouter au panier", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
-

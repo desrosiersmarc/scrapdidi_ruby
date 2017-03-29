@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 print "Destroy all elements"
-  Cart.destroy_all
+  Order.destroy_all
   Product.destroy_all
   Category.destroy_all
   Brand.destroy_all
@@ -63,10 +63,8 @@ trombones_clips = Category.create!(name: "Trombones / Clips", parent: embelissem
 puts ":ok"
 
 puts "Create products"
-i = 0
 50.times do
   Product.create(
-    # name: 'Produit-' + i.to_s,
     name: Faker::Superhero.name,
     sku: rand(1000000),
     state: ['new', 'promotion', 'topsell'].sample,
@@ -77,13 +75,27 @@ i = 0
     coefficient: '',
     discount_rate: '',
     price:  rand(1000),
-    weight: '',
+    weight: rand(100),
     stock: rand(1..9),
     description: Faker::Lorem.paragraphs(3, false),
     home: ['yes', 'no'].sample,
+    active: true
     )
-  i = i +1
-  print '*'
+  puts " product #{Product.last.name} is created"
 end
+puts "50 products are ok"
+
+print "Create Order Status"
+  OrderStatus.delete_all
+  OrderStatus.create! id: 1, name: "In Progress"
+  OrderStatus.create! id: 2, name: "Placed"
+  OrderStatus.create! id: 3, name: "Shipped"
+  OrderStatus.create! id: 4, name: "Cancelled"
+puts ": ok"
+puts "Create Users"
+  User.delete_all
+  create_account = User.new(email: 'md@md.com', password: '123soleil')
+  create_account.save
+puts "User #{create_account.email} is created"
 
 

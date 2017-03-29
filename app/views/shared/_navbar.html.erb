@@ -78,11 +78,8 @@
           </form>
         </div>
         <div class="col-xs-12 col-sm-3">
-          <div>
-            <%= link_to basket_path do%>
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              Mon Panier
-            <% end %>
+          <div class="cart-text">
+              <%= render 'layouts/cart_text' %>
           </div>
         </div>
       </div>
