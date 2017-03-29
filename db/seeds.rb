@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 print "Destroy all elements"
+  OrderItem.destroy_all
   Order.destroy_all
   Product.destroy_all
   Category.destroy_all
