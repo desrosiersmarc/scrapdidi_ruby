@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :sku
       t.string :state
-      t.references :subfamily, foreign_key: true
+      # t.references :subfamily, foreign_key: true
       t.references :supplier, foreign_key: true
       t.references :brand, foreign_key: true
       t.integer :purchasing_price
