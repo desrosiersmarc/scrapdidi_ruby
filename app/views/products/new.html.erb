@@ -7,20 +7,22 @@
             <%= @product.errors.full_messages.join("") %>
           <% end %>
 
-          <%= f.input :name %>
-          <%= f.input :sku %>
-          <%= f.input :state, collection: ['new', 'promotion', 'topsell'] %>
-          <%= f.input :supplier_id, collection: @suppliers %>
-          <%= f.input :brand_id, collection: @brands %>
-          <%= f.input :category_id, collection: @list_categories %>
-          <%= f.input :purchasing_price %>
-          <%= f.input :coefficient %>
-          <%= f.input :discount_rate %>
-          <%= f.input :price %>
-          <%= f.input :weight %>
+          <%= f.input :name, label: "Nom du produit" %>
+          <%= f.input :sku, label: "Référence" %>
+          <%= f.input :state, collection: ['new', 'promotion', 'topsell'], label: "Catégorie" %>
+          <%= f.input :supplier_id, collection: @suppliers, label: "Fournisseur" %>
+          <%= f.input :brand_id, collection: @brands, label: "Marque" %>
+          <%= f.input :category_id, collection: @list_categories, label: "Famille" %>
+          <%= f.input :home, collection: ["yes", "no"], label: "Présent sur la page d'accueil ?" %>
+          <%= f.input :active, label: "Produit disponible à la vente" %>
+          <!-- TODO add a filter to list categories -->
+          <%= f.input :purchasing_price, label: "Prix d'achat" %>
+          <%= f.input :coefficient, label: "Coefficient multiplicateur sur le prix d'achat" %>
+          <%= f.input :discount_rate, label: "Pourcentage de remise" %>
+          <%= f.input :price, label: "Prix de vente en centime" %>
+          <%= f.input :weight, label: "Poids en gramme" %>
           <%= f.input :stock %>
           <%= f.input :description %>
-          <%= f.input :home, collection: ["yes", "no"] %>
           <%= f.input :photos, as: :attachinary %>
           <%= f.button :submit %>
         <% end %>

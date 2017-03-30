@@ -17,7 +17,14 @@ class ProductsController < ApplicationController
     @product = Product.new
     @suppliers = Supplier.all
     @brands = Brand.all
-    @list_categories = Category.all
+    @list_categories = Category.find(
+                          Category.all
+                                  .map{|cat| !cat.has_children? ? cat.id : 0}
+                                  .reject{|e| e == 0}
+                                  )
+    # list_categoriesA = list_categories.reject{|e| e == 0}
+    # @list_categories = Category.find(list_categories)
+    #TODO
   end
 
   def create
