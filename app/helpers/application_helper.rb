@@ -14,4 +14,8 @@ module ApplicationHelper
       image_tag("logo.png")
     end
   end
+
+  def helper_price(price)
+    number_to_currency(price/100.00, unit: "€", format: "%n %u")
+  end
 end

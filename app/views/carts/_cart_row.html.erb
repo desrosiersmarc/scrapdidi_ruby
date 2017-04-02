@@ -2,40 +2,31 @@
   <div class="row">
     <div class="col-xs-8">
         <h4><%= product.name %></h4>
-
     </div>
     <div class="col-xs-4">
-        <h4 class="text-right">
-          Unit Price:
-            <span style="color: green">
-              <%= number_to_currency order_item.unit_price/100.00 %>
-            </span>
-        </h4>
-        <div class="row">
-          <div class="col-xs-8 text-right">
             <div class="btn-group up_down">
+              <h4 class="text-right">
+                <%= helper_price(order_item.unit_price) %>
+              </h4>
               <%= simple_form_for order_item, remote: true do |f| %>
                 <%= f.hidden_field :quantity, value: order_item.quantity-1 %>
-                <%= f.submit "-", class: "btn btn-alert" %>
+                <%= f.submit "-", class: "btn btn-primary" %>
               <% end %>
-              <%= order_item.quantity %>
+              <h4>
+                <%= order_item.quantity %>
+              </h4>
               <%= simple_form_for order_item, remote: true do |f| %>
                 <%= f.hidden_field :quantity, value: order_item.quantity+1 %>
-                <%= f.submit "+", class: "btn btn-alert" %>
+                <%= f.submit "+", class: "btn btn-primary" %>
               <% end %>
+              <h4 class="text-right">
+                <%= helper_price(order_item.total_price) %>
+              </h4>
 
               <%= link_to order_item_path(order_item), method: :delete, remote: :true, data:{confirm: "Etes vous sur de vouloir supprimer #{product.name}"} do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
-            </div>
-          </div>
         </div>
-        <h4 class="text-right">
-          Total Price:
-            <span style="color: green">
-              <%= number_to_currency order_item.total_price/100.00 %>
-            </span>
-        </h4>
     </div>
   </div>
 </div>
