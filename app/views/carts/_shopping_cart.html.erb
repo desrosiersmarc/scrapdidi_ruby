@@ -13,7 +13,11 @@
     <%= link_to "Retour", root_path %>
   </p>
 <% else %>
-  <% @order_items.each do |order_item| %>
-    <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
-  <% end %>
+  <table>
+    <%= render 'carts/cart_title' %>
+    <% @order_items.each do |order_item| %>
+      <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+    <% end %>
+    <%= render 'carts/total' %>
+  </table>
 <% end %>
