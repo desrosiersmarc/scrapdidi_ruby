@@ -17,6 +17,11 @@ th {
   color: $gray-light;
 }
 
+.th-quantity {
+  width: 120px;
+  text-align: center;
+}
+
 .td-reference, .td-price, .td-total, .td-quantity{
   width: 120px;
   color: $blue;
