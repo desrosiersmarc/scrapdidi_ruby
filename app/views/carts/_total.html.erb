@@ -7,13 +7,13 @@
 <tr>
   <td colspan="2"></td>
   <td colspan="2">Frais de ports</td>
-  <td>100.00 €</td>
+  <td><%= helper_price(current_order.shipping_price) %></td>
   <td></td>
 </tr>
 <tr>
   <td colspan="2"></td>
   <td colspan="2">Total commande</td>
-  <td>100.00 €</td>
+  <td><%= helper_price(current_order.subtotal + current_order.shipping_price) %></td>
   <td></td>
 </tr>
 <tr>

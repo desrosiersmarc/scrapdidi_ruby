@@ -9,7 +9,19 @@ class Order < ApplicationRecord
     order_items.collect {|oi| oi.valid? ? (oi.quantity * oi.unit_price) : O}.sum
   end
 
+  def total_weight
+    order_items.collect {|oi| oi.valid? ? (Product.find(oi.id).weight*oi.quantity) : 0}.sum
+  end
 
+  def shipping_price
+    if total_weight >= 1000
+      250
+    elsif (total_weight < 1000) && (total_weight > 500)
+      120
+    else
+      50
+    end
+  end
 private
   def set_order_status
     self.order_status_id = 1
