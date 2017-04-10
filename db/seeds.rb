@@ -22,6 +22,7 @@ print "Destroy all elements"
   Product.destroy_all
   Category.destroy_all
   Brand.destroy_all
+  Delivery.destroy_all
 puts ":ok"
 
 print "Create suppliers"
@@ -92,9 +93,25 @@ puts "Create products"
     home: ['yes', 'no'].sample,
     active: true
     )
-  puts " product #{Product.last.name} is created"
+  #puts " product #{Product.last.name} is created"
+  print "-"
 end
 puts "50 products are ok"
+
+puts "Create delivery"
+  filepath = "db/deliveries_hash.json"
+  serialized_deliveries = File.read(filepath)
+  deliveries = JSON.parse(serialized_deliveries)
+
+  deliveries.each do |d|
+    Delivery.create(
+        name: d["name"],
+        min_weight: d["min_weight"],
+        max_weight: d["max_weight"],
+        price: d["price"]
+      )
+  end
+puts "Deliveries created"
 
 print "Create Order Status"
   OrderStatus.delete_all

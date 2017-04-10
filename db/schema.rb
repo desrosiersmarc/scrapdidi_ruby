@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327070957) do
+ActiveRecord::Schema.define(version: 20170408204758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20170327070957) do
     t.string   "ancestry"
   end
 
+  create_table "deliveries", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "min_weight"
+    t.integer  "max_weight"
+    t.float    "price"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_deliveries_on_order_id", using: :btree
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "order_id"
@@ -81,7 +92,6 @@ ActiveRecord::Schema.define(version: 20170327070957) do
     t.integer  "user_id"
     t.float    "subtotal"
     t.float    "tax"
-    t.float    "shipping"
     t.integer  "total"
     t.integer  "order_status_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
@@ -135,6 +145,7 @@ ActiveRecord::Schema.define(version: 20170327070957) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "deliveries", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "order_statuses"

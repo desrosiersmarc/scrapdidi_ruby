@@ -1,0 +1,10 @@
+<div class="container">
+  <p>
+    Le poids de votre colis est de <%= @weight %> grammes
+  </p>
+  <% @deliveries.each do |delivery| %>
+    <p>
+      <%= delivery. name %> | <%= delivery.price %>
+    </p>
+  <% end %>
+</div>

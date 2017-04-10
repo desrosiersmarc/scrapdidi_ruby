@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   end
 
   def total_weight
-    order_items.collect {|oi| oi.valid? ? (Product.find(oi.id).weight*oi.quantity) : 0}.sum
+    order_items.collect {|oi| oi.valid? ? (Product.find(oi.product_id).weight*oi.quantity) : 0}.sum
   end
 
   def shipping_price
