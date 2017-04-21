@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408204758) do
+ActiveRecord::Schema.define(version: 20170418212834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,9 @@ ActiveRecord::Schema.define(version: 20170408204758) do
     t.float    "tax"
     t.integer  "total"
     t.integer  "order_status_id"
+    t.integer  "delivery_id"
+    t.string   "message"
+    t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -148,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170408204758) do
   add_foreign_key "deliveries", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "deliveries"
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "brands"

@@ -1,10 +1,14 @@
 <div class="container">
-  <p>
-    Le poids de votre colis est de <%= @weight %> grammes
-  </p>
-  <% @deliveries.each do |delivery| %>
-    <p>
-      <%= delivery. name %> | <%= delivery.price %>
-    </p>
-  <% end %>
-</div>
+<h3>Do not used</h3>
+
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.label :id %>
+    <%= f.input :order_status_id %>
+    <%= f.input :delivery_id,
+                collection: @deliveries,
+                label: "Choisissez votre mode de livraison :",
+                as: :radio_buttons %>
+    <%= f.input :message %>
+    <%= f.submit "Clic here!", class: "btn btn-primary btn-block" %>
+
+  <% end %></div>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resource :delivery, only: [:show]
     end
     resources :order_items, only: [:create, :update, :destroy]
+    resources :orders#, only: [:edit, :update]
 
 
   mount Attachinary::Engine => "/attachinary"
