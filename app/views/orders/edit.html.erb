@@ -24,10 +24,10 @@
 
         <h3>Laisser un message</h3>
         <p>Si vous souhaitez nous laisser un message à propos de votre commande ou spécifier le salon pour le retrait de votre commande, merci de bien vouloir utiliser le champs ci-dessous :</p>
-        <%= f.input :message %>
+        <%= f.input :customer_message %>
         <h3>Conditions générales de ventes</h3>
 
-        <p><input type="checkbox" name="cgv" id="cgv">  j'ai lu et j'accepte les conditions générales de vente et j'y adhère sans réserve. Lire les Conditions générales de ventes</p>
+        <%= f.input :cgv, as: :boolean, label: "j'ai lu et j'accepte les conditions générales de vente et j'y adhère sans réserve. Lire les Conditions générales de ventes" %>
     </div>
     <br>
       <%= f.submit "Je valide ma commande et je passe au paiement", class: "btn btn-primary btn-block" %>

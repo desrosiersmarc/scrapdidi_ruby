@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resource :cart, only: [:show] do
       resource :delivery, only: [:show]
     end
+
+    get 'cart/summary', to: 'summary#show'
     resources :order_items, only: [:create, :update, :destroy]
     resources :orders#, only: [:edit, :update]
 
