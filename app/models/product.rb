@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :order_items
 
-  validates :name, presence: true
+  validates :name, presence: { message: "Vous avez oublié le nom" }
   validates :sku, presence: true, length: { maximum: 12, too_long: "%{count} caractères est le maximum" }
   validates :state, presence: true
   validates :supplier_id, presence: true

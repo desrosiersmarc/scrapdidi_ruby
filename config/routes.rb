@@ -18,10 +18,13 @@ Rails.application.routes.draw do
   # resources :categories, only: :show do
     resources :products, only: [:new, :create, :show, :index]
   # end
-    resource :cart, only: [:show] #do
-      #ressource :shipping, only: [:show]
-   # end
+    resource :cart, only: [:show] do
+      resource :delivery, only: [:show]
+    end
+
+    get 'cart/summary', to: 'summary#show'
     resources :order_items, only: [:create, :update, :destroy]
+    resources :orders#, only: [:edit, :update]
 
 
   mount Attachinary::Engine => "/attachinary"

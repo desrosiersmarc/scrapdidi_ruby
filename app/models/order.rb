@@ -3,6 +3,9 @@ class Order < ApplicationRecord
   belongs_to :order_status
   has_many :order_items
 
+  validates :cgv, acceptance: {message: "Veuillez accepter les conditions générales de ventes"}
+  #validates :customer_message, presence: true
+
   before_create :set_order_status
 
   def subtotal
@@ -10,17 +13,15 @@ class Order < ApplicationRecord
   end
 
   def total_weight
-    order_items.collect {|oi| oi.valid? ? (Product.find(oi.id).weight*oi.quantity) : 0}.sum
+    order_items.collect {|oi| oi.valid? ? (Product.find(oi.product_id).weight*oi.quantity) : 0}.sum
   end
 
   def shipping_price
-    if total_weight >= 1000
-      250
-    elsif (total_weight < 1000) && (total_weight > 500)
-      120
-    else
-      50
-    end
+    Delivery.all.where("min_weight < ?", total_weight)
+                .where("? <= max_weight", total_weight)
+                .where("name = ?", "Lettre suivie")
+                .first
+                .price
   end
 private
   def set_order_status

@@ -7,21 +7,19 @@
 <tr>
   <td colspan="2"></td>
   <td colspan="2">Frais de ports</td>
-  <td><%= helper_price(current_order.shipping_price) %></td>
+  <td><%= helper_price(current_order.shipping_price*100) %></td>
   <td></td>
 </tr>
 <tr>
   <td colspan="2"></td>
   <td colspan="2">Total commande</td>
-  <td><%= helper_price(current_order.subtotal + current_order.shipping_price) %></td>
+  <td><%= helper_price(current_order.subtotal + current_order.shipping_price*100) %></td>
   <td></td>
 </tr>
 <tr>
   <td colspan="2"></td>
   <td colspan="3">
-    <p class="btn btn-primary btn-block">
-      Je commande
-    </p>
+    <%= link_to "Je Commande", edit_order_path(current_order.id), class: "btn btn-primary btn-block" %>
   </td>
   <td></td>
 </tr>

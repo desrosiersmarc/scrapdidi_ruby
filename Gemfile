@@ -21,6 +21,7 @@ gem 'autoprefixer-rails'
 gem 'cloudinary', '1.1.0'
 gem 'faker'
 gem 'ancestry'
+gem 'rest-client'
 
 gem "attachinary", github: "assembler/attachinary"
 gem "jquery-fileupload-rails"

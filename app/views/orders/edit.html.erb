@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="payement">
+    <%= simple_form_for(@order) do |f| %>
+        <%= f.error_notification %>
+        <% if @order.errors.any? %>
+          <%= @order.errors.full_messages.join(" ") %>
+        <% end %>
+        <h1>Choix du mode de livraison</h1>
+        <p>
+          Le poids de votre colis est de <%= @weight %> grammes
+        </p>
+        <% @deliveries.each do |delivery| %>
+          <table>
+            <tr>
+              <td class="td-selected-case">
+                <input type="radio" name="shippingSelected" value=<%= delivery.id %> <%= delivery.checked %> >
+              </td>
+              <td class="td-payement-logo">logo</td>
+              <td class="td-name"><%= delivery. name %></td>
+              <td class="td-price"><%= helper_price(delivery.price * 100) %></td>
+            </tr>
+          </table>
+        <% end %>
+
+        <h3>Laisser un message</h3>
+        <p>Si vous souhaitez nous laisser un message à propos de votre commande ou spécifier le salon pour le retrait de votre commande, merci de bien vouloir utiliser le champs ci-dessous :</p>
+        <%= f.input :customer_message %>
+        <h3>Conditions générales de ventes</h3>
+
+        <%= f.input :cgv, as: :boolean, label: "j'ai lu et j'accepte les conditions générales de vente et j'y adhère sans réserve. Lire les Conditions générales de ventes" %>
+    </div>
+    <br>
+      <%= f.submit "Je valide ma commande et je passe au paiement", class: "btn btn-primary btn-block" %>
+    <% end %>
+</div>
