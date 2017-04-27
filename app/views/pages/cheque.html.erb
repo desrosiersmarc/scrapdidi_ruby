@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h3>PAIEMENT PAR CHEQUE</h3>
+    <hr>
+    <b>Vous avez choisi de rélger par chéque. Voici un bref récapitulatif de votre commande</b>
+    <ul>
+      <li>Le montant de votre commande s'éléve à <%= helper_price(current_order.subtotal) %> € TTC</li>
+      <li>Nous acceptons la devise suivante pour votre paiement : Euro</li>
+      <li>L'ordre et l'adresse du chèque seront affichés sur la page suivante</li>
+      <li>Merci de confirmer votre commande en cliquant sur "Je confirme ma commande"</li>
+    </ul>
+    <p class="btn btn-block btn-primary">
+      Je valide ma commande
+    </p>
+  </div>
+</div>

@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/basket', to: 'pages#basket'
 
+  get '/cart/cheque', to: 'pages#cheque'
+  get '/cart/virement', to: 'pages#virement'
+  get '/cart/especes', to: 'pages#especes'
+
   get '/categories/*id' => 'categories#show'
 
   # resources :categories, only: :show do
@@ -20,9 +24,9 @@ Rails.application.routes.draw do
   # end
     resource :cart, only: [:show] do
       resource :delivery, only: [:show]
+      resource :summary, only: [:show]
     end
 
-    get 'cart/summary', to: 'summary#show'
     resources :order_items, only: [:create, :update, :destroy]
     resources :orders#, only: [:edit, :update]
 
