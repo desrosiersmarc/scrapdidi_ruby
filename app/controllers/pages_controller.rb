@@ -13,4 +13,13 @@ class PagesController < ApplicationController
 
   end
 
+  def cheque
+  end
+
+  def virement
+  end
+
+  def especes
+  end
+
 end

@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(params_order)
-      redirect_to root_path, notice: "Votre commande est validée"
+      redirect_to cart_summary_path, notice: "Il faut payer maintenant... ;o)"
     else
       render :edit, notice: "Il y a un problème"
     end

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h3>PAIEMENT COMPTANT A LA LIVRAISON</h3>
+    <hr>
+    <b>Vous avez choisi le paiement à la livraison. Voici un bref récapitulatif de votre commande</b>
+    <ul>
+      <li>Le montant de votre commande s'éléve à <%= helper_price(current_order.subtotal) %> € TTC</li>
+      <li>Nous acceptons la devise suivante pour votre paiement : Euro</li>
+      <li>Merci de confirmer votre commande en cliquant sur "Je confirme ma commande"</li>
+    </ul>
+    <p class="btn btn-block btn-primary">
+      Je valide ma commande
+    </p>
+  </div>
+</div>
+
+
+
