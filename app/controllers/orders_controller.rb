@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(params_order)
-      redirect_to cart_summary_path, notice: "Il faut payer maintenant... ;o)"
+      redirect_to cart_summary_path#, notice: "Il faut payer maintenant... ;o)"
     else
       render :edit, notice: "Il y a un problème"
     end
@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     end
 
     def params_order
-      #params["order"]["delivery_id"] = params["shippingSelected"].to_i
+      params["order"]["delivery_id"] = params["shippingSelected"].to_i
       params.require(:order).permit(:delivery_id, :customer_message, :cgv )
     end
 end

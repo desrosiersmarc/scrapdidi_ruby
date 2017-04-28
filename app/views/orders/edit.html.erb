@@ -1,4 +1,8 @@
-Mon Panier | Identification | <b>Livraison</b> | Paiement | Confirmation
+<div class="container">
+  <div class="row">
+  Mon Panier | Identification | <b>Livraison</b> | Paiement | Confirmation
+  </div>
+</div>
 <div class="container">
     <div class="payement">
     <%= simple_form_for(@order) do |f| %>
@@ -15,6 +19,7 @@ Mon Panier | Identification | <b>Livraison</b> | Paiement | Confirmation
             <tr>
               <td class="td-selected-case">
                 <input type="radio" name="shippingSelected" value=<%= delivery.id %> <%= delivery.checked %> >
+                <%= delivery.id %>
               </td>
               <td class="td-payement-logo">logo</td>
               <td class="td-name"><%= delivery. name %></td>
