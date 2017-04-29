@@ -14,7 +14,7 @@
   <td class="td-quantity up_down">
     <%= simple_form_for order_item, remote: true do |f| %>
       <%= f.hidden_field :quantity, value: order_item.quantity-1 %>
-      <%= f.submit "-", class: "btn-less" %>
+      <%= f.submit "-", class: "btn-less #{@class_hidden}", input_html: {id: "#{@id_command}"} %>
     <% end %>
 
     <button class="btn-quantity">
@@ -23,7 +23,7 @@
 
     <%= simple_form_for order_item, remote: true do |f| %>
       <%= f.hidden_field :quantity, value: order_item.quantity+1 %>
-      <%= f.submit "+", class: "btn-more" %>
+      <%= f.submit "+", class: "btn-more #{@class_hidden}" %>
     <% end %>
   </td>
   <td class="td-total">
@@ -32,7 +32,7 @@
 
   <td class="td-trash">
     <%= link_to order_item_path(order_item), method: :delete, remote: :true, data:{confirm: "Etes vous sur de vouloir supprimer #{product.name}"} do %>
-      <i class="fa fa-trash" aria-hidden="true"></i>
+      <i class="fa fa-trash <%= @class_hidden%>" aria-hidden="true"></i>
     <% end %>
   </td>
 </tr>
