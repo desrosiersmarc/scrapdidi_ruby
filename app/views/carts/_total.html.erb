@@ -9,7 +9,9 @@
   <td colspan="2">Frais de ports</td>
   <td><%= helper_price(Delivery.find(current_order.delivery_id).price*100) %></td>
 
-  <td></td>
+  <td>
+    <%= current_order.order_delivery_name %>
+  </td>
 </tr>
 <tr>
   <td colspan="2"></td>

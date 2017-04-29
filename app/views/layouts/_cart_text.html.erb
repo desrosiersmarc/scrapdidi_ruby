@@ -9,7 +9,7 @@
     <div class="cart-price">
       <p>
         Mon Panier
-        <%= helper_price(current_order.subtotal) %>
+        <%= helper_price(current_order.subtotal + current_order.shipping_price*100) %>
       </p>
     </div>
   </div>
