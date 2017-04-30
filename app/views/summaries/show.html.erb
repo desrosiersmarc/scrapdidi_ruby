@@ -1,12 +1,11 @@
-<%= javascript_include_tag 'hide' %>
 
 <div class="container">
   <div class="row">
-    Mon Panier | Identification | Livraison | <b>Paiement</b> | Confirmation
+    <div class="steps">
+      <%= helper_step("Paiement") %>
+    </div>
   </div>
-</div>
 
-<div class="container">
   <div class="row">
     <%= render "carts/shopping_cart" %>
   </div>
