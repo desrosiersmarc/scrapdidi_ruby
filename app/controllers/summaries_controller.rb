@@ -1,7 +1,8 @@
 class SummariesController < ApplicationController
-  def show
-    # @order = Order.find(current_order.id)
-  end
 
+  def show
+    @order_items = current_order.order_items
+    @class_hidden = "hidden"
+  end
 
 end

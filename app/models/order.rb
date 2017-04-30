@@ -19,10 +19,15 @@ class Order < ApplicationRecord
   def shipping_price
     Delivery.all.where("min_weight < ?", total_weight)
                 .where("? <= max_weight", total_weight)
-                .where("name = ?", "Lettre suivie")
+                .where("name = ?", order_delivery_name)
                 .first
                 .price
   end
+
+  def order_delivery_name
+    Delivery.find(self.delivery_id).name
+  end
+
 private
   def set_order_status
     self.order_status_id = 1
@@ -32,4 +37,5 @@ private
   def update_subtotal
     self[:subtotal] = subtotal
   end
+
 end
