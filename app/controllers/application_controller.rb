@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       # In case of problem. Console/Application/Clear Storage
       Order.find(session[:order_id])
     else
-      Order.new
+      Order.create
     end
   end
 end

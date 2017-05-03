@@ -17,11 +17,15 @@ class Order < ApplicationRecord
   end
 
   def shipping_price
-    Delivery.all.where("min_weight < ?", total_weight)
-                .where("? <= max_weight", total_weight)
-                .where("name = ?", order_delivery_name)
-                .first
-                .price
+    if !self.delivery_id.nil?
+      (Delivery.all.where("min_weight < ?", total_weight)
+                                .where("? <= max_weight", total_weight)
+                                .where("name = ?", order_delivery_name)
+                                .first
+                                .price) * 100
+    else
+      0
+    end
   end
 
   def order_delivery_name
