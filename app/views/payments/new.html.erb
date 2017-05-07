@@ -5,6 +5,10 @@
       <%= helper_step("Paiement") %>
     </div>
   </div>
+  <div>
+    <p>Vérification TP: <%= @order.total_price %></p>
+    <p>Vérification TPC: <%= @order.total_price_calculated %></p>
+  </div>
 
   <div class="row">
     <%= render "carts/shopping_cart" %>
@@ -14,12 +18,26 @@
 <div class="container">
   <div class="row">
 
+
       <div class="col-xs-12 col-sm-6">
-        <p class="btn-payement">
-          <i class="fa fa-credit-card" aria-hidden="true"></i>
-          Carte bancaire
-        </p>
+        <%= form_tag order_payments_path(@order) do %>
+          <p class="btn-payement">
+            <i class="fa fa-credit-card" aria-hidden="true"></i>
+            Carte bancaire
+          </p>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="scrapdidi.fr"
+            data-email="<%= current_user.email %>"
+            data-description="Commande n° <%= @order.id %>"
+            data-locale="auto"
+            data-amount="<%= @order.total_price_cents %>"
+            data-image="https://stocklogos.com/sites/default/files/ferrari-logo_0.jpg"
+            data-currency="EUR"></script>
+
+        <% end %>
       </div>
+
     <%= link_to cart_virement_path do %>
       <div class="col-xs-12 col-sm-6">
         <p class="btn-payement">

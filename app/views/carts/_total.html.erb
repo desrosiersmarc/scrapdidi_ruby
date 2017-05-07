@@ -16,7 +16,7 @@
 <tr>
   <td colspan="2"></td>
   <td colspan="2">Total commande</td>
-  <td><%= helper_price(current_order.subtotal + current_order.shipping_price) %></td>
+  <td><%= helper_price(current_order.total_price_calculated) %></td>
   <td></td>
 </tr>
 <tr>

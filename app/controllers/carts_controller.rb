@@ -7,8 +7,6 @@ class CartsController < ApplicationController
     update_current_order_delivery = current_order
     update_current_order_delivery.delivery_id = Delivery.first.id
     update_current_order_delivery.save
+  end
 
-  end
-  def summary
-  end
 end

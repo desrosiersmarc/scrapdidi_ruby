@@ -8,6 +8,8 @@ class Order < ApplicationRecord
 
   before_create :set_order_status
 
+  monetize :total_price_cents
+
   def subtotal
     order_items.collect {|oi| oi.valid? ? (oi.quantity * oi.unit_price) : O}.sum
   end
@@ -26,6 +28,10 @@ class Order < ApplicationRecord
     else
       0
     end
+  end
+
+  def total_price_calculated
+    subtotal + shipping_price
   end
 
   def order_delivery_name

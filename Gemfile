@@ -27,6 +27,11 @@ gem "attachinary", github: "assembler/attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 
+#for stripe
+gem 'coffee-script'
+gem 'money-rails'
+gem 'stripe'
+
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
