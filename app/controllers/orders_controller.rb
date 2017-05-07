@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :edit, :update]
   before_action :weight_and_deliveries, only: [:edit, :update]
   def show
+    @order = Order.where(state: 2).find(params[:id])
   end
 
   def edit
