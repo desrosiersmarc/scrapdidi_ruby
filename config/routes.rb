@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # mount ForestLiana::Engine => '/forest'
   devise_for :users
   root to: 'pages#home'
-  get '/basket', to: 'pages#basket'
+  # get '/basket', to: 'pages#basket'
 
   get '/cart/cheque', to: 'pages#cheque'
   get '/cart/virement', to: 'pages#virement'
@@ -25,10 +25,11 @@ Rails.application.routes.draw do
     resource :cart, only: [:show] do
       resource :delivery, only: [:show]
       resource :summary, only: [:show]
+      resources :payments, only: [:new, :create]
     end
 
     resources :order_items, only: [:create, :update, :destroy]
-    resources :orders#, only: [:edit, :update]
+    resources :orders, only: [:edit, :update]
 
 
   mount Attachinary::Engine => "/attachinary"
