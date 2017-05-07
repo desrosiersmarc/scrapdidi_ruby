@@ -30,7 +30,7 @@ class Order < ApplicationRecord
     end
   end
 
-  def total_price
+  def total_price_calculated
     subtotal + shipping_price
   end
 

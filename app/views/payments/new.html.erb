@@ -5,6 +5,10 @@
       <%= helper_step("Paiement") %>
     </div>
   </div>
+  <div>
+    <p>Vérification TP: <%= @order.total_price %></p>
+    <p>Vérification TPC: <%= @order.total_price_calculated %></p>
+  </div>
 
   <div class="row">
     <%= render "carts/shopping_cart" %>

@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
   def new
     @order_items = current_order.order_items
     @class_hidden = "hidden"
+    @order.total_price = @order.total_price_calculated / 100
   end
 
 def create
@@ -18,7 +19,7 @@ def create
     currency:     @order.total_price.currency
   )
 
-  @order.update(payment: charge.to_json, state: 2)
+  @order.update(payment: charge.to_json, order_status_id: 2)
   redirect_to order_path(@order)
 
 rescue Stripe::CardError => e

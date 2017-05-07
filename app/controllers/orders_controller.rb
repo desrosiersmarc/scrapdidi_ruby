@@ -3,13 +3,14 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :edit, :update]
   before_action :weight_and_deliveries, only: [:edit, :update]
   def show
-    @order = Order.where(state: 2).find(params[:id])
+    @order = Order.where(order_status_id: 2).find(params[:id])
   end
 
   def edit
   end
 
   def update
+    @order.total_price = @order.total_price_calculated / 100
     if @order.update(params_order)
       redirect_to new_order_payment_path(@order)#, notice: "Il faut payer maintenant... ;o)"
     else
@@ -30,6 +31,6 @@ class OrdersController < ApplicationController
 
     def params_order
       params["order"]["delivery_id"] = params["shippingSelected"].to_i
-      params.require(:order).permit(:delivery_id, :customer_message, :cgv )
+      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price )
     end
 end
