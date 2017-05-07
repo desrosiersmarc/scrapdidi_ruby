@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(params_order)
-      redirect_to new_cart_payment_path#, notice: "Il faut payer maintenant... ;o)"
+      redirect_to new_order_payment_path(@order)#, notice: "Il faut payer maintenant... ;o)"
     else
       render :edit, notice: "Il y a un problème"
     end
