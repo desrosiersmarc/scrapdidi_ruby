@@ -10,7 +10,9 @@
   <td><%= helper_price(Delivery.find(current_order.delivery_id).price*100) %></td>
 
   <td>
-    <%= current_order.order_delivery_name %>
+    <p>
+      <%= current_order.order_delivery_name %>
+    </p>
   </td>
 </tr>
 <tr>
