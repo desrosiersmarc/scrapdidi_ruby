@@ -12,7 +12,7 @@
       <%= simple_form_for order_item, remote: true do |f| %>
           <%= f.hidden_field :quantity, value: 1 %>
             <%= f.hidden_field :product_id, value: product.id %>
-            <%= f.submit "Ajouter au panier", class: "btn btn-primary btn-block" %>
+            <%= f.submit "Ajouter au panier", class: "btn btn-primary btn-block add-basket-alert" %>
       <% end %>
     <% end %>
   </div>
