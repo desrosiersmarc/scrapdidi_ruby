@@ -3,7 +3,7 @@
     <%= link_to product_path(product),id: "#{product.sku}" , class: "btn" do %>
       <%= helper_picture_tag(product) %>
       <p>
-        <%= product.name %> | new
+        <%= product.name %>
       </p>
       <p>
         <%= number_to_currency(product.price/100.00, unit:"€", format: "%n %u") %> |

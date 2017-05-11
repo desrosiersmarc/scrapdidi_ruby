@@ -181,6 +181,7 @@
 .cart-container{
   position: relative;
   height: 100px;
+  width: 274px;
 }
 .cart-size{
   height:25px;
@@ -195,6 +196,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px #F7D1F6 solid;
 
 }
 .cart-price{
