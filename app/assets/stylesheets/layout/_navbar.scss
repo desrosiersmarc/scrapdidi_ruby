@@ -169,6 +169,13 @@
 
 .navbar-menu-bg-color {
   background-color: $pink;
+  text-align: center;
+}
+
+.search-bar {
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 
 .cart-text {
