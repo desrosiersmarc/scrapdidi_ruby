@@ -2,12 +2,12 @@
   height: 60px;
   line-height: 60px;
   background-color: #4C378A;
-  width: 200px;
+  min-width: 200px;
   position: fixed;
   top: 50%;
   right: 0px;
   //border-radius: 10px 0 0 10px;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
   color: #FFF;
   font-family: helvetica;
   box-shadow: 1px 1px 30px 15px #FFF;
