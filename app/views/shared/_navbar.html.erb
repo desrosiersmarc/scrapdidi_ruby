@@ -63,28 +63,26 @@
 <div class="navbar-menu-bg-color">
   <div class="container">
     <div class="row">
-      <!-- <div class="navbar-logo-search-cart"> -->
-        <div class="hidden-xs col-sm-3">
-          <%= link_to root_path, class: "navbar-wagon-brand" do %>
-            <%= image_tag "logo.png" %>
-          <% end %>
+      <div class="hidden-xs col-sm-3">
+        <%= link_to root_path, class: "navbar-wagon-brand" do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="search-bar">
+          <form action="" class="navbar-wagon-search">
+            <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+            <button type="submit" class="navbar-wagon-search-btn">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
         </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="search-bar">
-            <form action="" class="navbar-wagon-search">
-              <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-              <button type="submit" class="navbar-wagon-search-btn">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-          </div>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <div class="cart-text">
+            <%= render 'layouts/cart_text' %>
         </div>
-        <div class="col-xs-12 col-sm-3">
-          <div class="cart-text">
-              <%= render 'layouts/cart_text' %>
-          </div>
-        </div>
-      <!-- </div> -->
+      </div>
     </div>
   </div>
 </div>
