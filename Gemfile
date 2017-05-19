@@ -32,6 +32,9 @@ gem 'coffee-script'
 gem 'money-rails'
 gem 'stripe'
 
+#for datepicker
+gem 'bootstrap-datepicker-rails'
+
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
