@@ -9,5 +9,7 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 // = require add_basket
+//= require bootstrap-datepicker
+//= require datepicker_param
 
 
