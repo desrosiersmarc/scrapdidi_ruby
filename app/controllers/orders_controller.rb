@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     @order.total_price = @order.total_price_calculated / 100
     if @order.update(params_order)
       redirect_to new_order_payment_path(@order)#, notice: "Il faut payer maintenant... ;o)"
+      UserMailer.pending_order(current_user).deliver_now
     else
       render :edit, notice: "Il y a un problème"
     end

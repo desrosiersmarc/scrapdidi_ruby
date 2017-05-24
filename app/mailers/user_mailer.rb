@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  before_action :find_user
+  # before_action :find_user
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -24,8 +24,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.pending_order.subject
   #
-  def pending_order
-    mail to: "to@example.org"
+  def pending_order(user)
+    @user = user
+    mail to: user.email
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -38,9 +39,7 @@ class UserMailer < ApplicationMailer
   end
 
 private
-  def find_user
-    @user = User.find(current_order.user_id)
-  end
+
 
 
 
