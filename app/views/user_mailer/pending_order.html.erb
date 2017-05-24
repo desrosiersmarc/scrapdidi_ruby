@@ -1,5 +1,19 @@
-<h1>User#pending_order</h1>
+<div class="container">
+  <div class="row">
+    <h1><%= @user.firstname %></h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/pending_order.html.erb
-</p>
+    <p>
+      Votre commande est en attente de traitement.
+    </p>
+    <p>
+      Nous vous ferons parvenir un email quand nous commencerons à la préparation.
+    </p>
+    <p>
+      Bonne journée
+    </p>
+
+    <%= render "carts/shopping" %>
+
+
+  </div>
+</div>

@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :products, through: :carts
   has_many :carts
+  #Add to tests
+  has_many :order_items, through: :orders
 end
