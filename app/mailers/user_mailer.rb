@@ -1,7 +1,5 @@
 class UserMailer < ApplicationMailer
   helper :application
-  #helper :ApplicationHelper
-  # before_action :find_user
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #

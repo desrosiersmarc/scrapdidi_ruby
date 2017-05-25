@@ -24,7 +24,7 @@ def create
 
   # Test a solution to send email with cart content
     order_items = current_order.order_items
-    UserMailer.pending_order(current_user, order_items).deliver_now
+    UserMailer.pending_order(current_user, order_items, current_order).deliver_now
 rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_order_payment_path(@order)
