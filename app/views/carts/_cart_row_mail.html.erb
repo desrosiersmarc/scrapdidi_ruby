@@ -1,0 +1,27 @@
+<tr>
+  <td class="td-reference">
+  photo
+  </td>
+  <td class="td-name">
+      <%= product.name %>
+    <p>
+      <%= order_item.product.sku %>
+    </p>
+  </td>
+  <td class="td-price">
+    <%= helper_price(order_item.unit_price) %>
+  </td>
+  <td class="td-quantity up_down">
+    <button class="btn-quantity">
+      <%= order_item.quantity %>
+    </button>
+  </td>
+  <td class="td-total">
+      <%= helper_price(order_item.total_price) %>
+  </td>
+
+  <td class="td-trash">
+  </td>
+</tr>
+
+

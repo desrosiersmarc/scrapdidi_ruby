@@ -33,6 +33,7 @@
         <p>Si vous souhaitez nous laisser un message à propos de votre commande ou spécifier le salon pour le retrait de votre commande, merci de bien vouloir utiliser le champs ci-dessous :</p>
         <%= f.input :customer_message, label: false %>
         <h3>Conditions générales de ventes</h3>
+        <%= f.input :user_id, input_html: { value: @current_id }, as: :hidden %>
 
         <%= f.input :cgv, as: :boolean, label: "j'ai lu et j'accepte les conditions générales de vente et j'y adhère sans réserve. Lire les Conditions générales de ventes" %>
     </div>

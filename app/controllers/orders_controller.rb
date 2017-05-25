@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:show, :update]
   before_action :find_order, only: [:show, :edit, :update]
   before_action :weight_and_deliveries, only: [:edit, :update]
   def show
@@ -7,12 +7,16 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @current_id = current_user.id
   end
 
   def update
     @order.total_price = @order.total_price_calculated / 100
     if @order.update(params_order)
       redirect_to new_order_payment_path(@order)#, notice: "Il faut payer maintenant... ;o)"
+      #TODO to delete
+      UserMailer.pending_order(current_user, current_order.order_items, current_order).deliver_now
+
     else
       render :edit, notice: "Il y a un problème"
     end
@@ -31,6 +35,6 @@ class OrdersController < ApplicationController
 
     def params_order
       params["order"]["delivery_id"] = params["shippingSelected"].to_i
-      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price )
+      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price, :user_id )
     end
 end
