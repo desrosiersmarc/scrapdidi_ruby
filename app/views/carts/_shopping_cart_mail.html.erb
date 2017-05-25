@@ -1,0 +1,35 @@
+  <table>
+    <%= render 'carts/cart_title' %>
+    <% @order_items.each do |order_item| %>
+      <%= render 'carts/cart_row_mail', product: order_item.product, order_item: order_item, show_total: true %>
+    <% end %>
+    <tr>
+      <td colspan="2"></td>
+      <td colspan="2">Total produits TTC</td>
+      <td><%= helper_price(@current_order.subtotal) %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td colspan="2">Frais de ports</td>
+      <td><%= helper_price(Delivery.find(@current_order.delivery_id).price*100) %></td>
+
+      <td>
+        <p>
+          <%= @current_order.order_delivery_name %>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td colspan="2">Total commande</td>
+      <td><%= helper_price(@current_order.total_price_calculated) %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td colspan="3">
+      </td>
+      <td></td>
+    </tr>
+  </table>
