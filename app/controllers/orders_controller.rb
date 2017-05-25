@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     if @order.update(params_order)
       redirect_to new_order_payment_path(@order)#, notice: "Il faut payer maintenant... ;o)"
       #TODO to delete
-      UserMailer.pending_order(current_user, current_order.order_items, current_order).deliver_now
+      # UserMailer.pending_order(current_user, current_order.order_items, current_order).deliver_now
 
     else
       render :edit, notice: "Il y a un problème"
