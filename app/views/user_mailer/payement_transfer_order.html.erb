@@ -6,7 +6,7 @@
 <ul>
   <li>N° commande : <%= @current_order.id %></li>
   <li>Montant total : <%= helper_price(@current_order.total) %></li>
-  <li>Mode de paiement : Chèque</li>
+  <li>Mode de paiement : Virement</li>
   <li>Mode de livraison : <%= Delivery.find(@current_order.delivery_id).name %></li>
 </ul>
 
