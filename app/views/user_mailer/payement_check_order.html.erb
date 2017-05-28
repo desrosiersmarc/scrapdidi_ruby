@@ -1,0 +1,22 @@
+<%= render 'gabarit_header' %>
+
+<p>Bonjour <%= @user.firstname %>,</p>
+<p>Nous avons bien enregistré votre commande sur ScrapDidi et nous vous en remercions.</p>
+<p>Voici le détail de votre commande :</p>
+<ul>
+  <li>N° commande : <%= @current_order.id %></li>
+  <li>Montant total : <%= helper_price(@current_order.total) %></li>
+  <li>Mode de paiement : Chèque</li>
+  <li>Mode de livraison : <%= Delivery.find(@current_order.delivery_id).name %></li>
+</ul>
+
+<p>Et les informations pour l’envoi du chèque:</p>
+<ul>
+  <li>Ordre : La boutique de Didi</li>
+  <li>Adresse postale : 40, rue des Coulons, 59200, Tourcoing.</li>
+</ul>
+<p>Nous informerons de l’expédition de votre commande dès réception et encaissement du chèque.</p>
+<p>Merci de votre confiance et à bientôt.</p>
+
+<%= render 'gabarit_footer' %>
+

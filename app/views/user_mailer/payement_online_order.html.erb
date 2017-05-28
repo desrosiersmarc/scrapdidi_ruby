@@ -1,0 +1,17 @@
+<%= render 'gabarit_header' %>
+
+<p>Bonjour <%= @user.firstname %>,</p>
+<p>Nous avons bien enregistré votre commande sur ScrapDidi et nous vous en remercions.</p>
+<p>Voici le détail de votre commande :</p>
+<ul>
+  <li>N° commande : <%= @current_order.id %></li>
+  <li>Montant total : <%= helper_price(@current_order.total) %></li>
+  <li>Mode de paiement : En ligne</li>
+  <li>Mode de livraison : <%= Delivery.find(@current_order.delivery_id).name %></li>
+</ul>
+
+<p>Nous vous informerons de l’expédition de votre commande.</p>
+<p>Merci de votre confiance et à bientôt.</p>
+
+<%= render 'gabarit_footer' %>
+

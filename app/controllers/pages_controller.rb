@@ -13,13 +13,16 @@ class PagesController < ApplicationController
 
   end
 
-  def cheque
+  def check
+    UserMailer.payement_check_order(current_user, current_order).deliver_now
   end
 
-  def virement
+  def transfer
+    UserMailer.payement_transfer_order(current_user, current_order).deliver_now
   end
 
-  def especes
+  def cash
+    UserMailer.payement_cash_order(current_user, current_order).deliver_now
   end
 
 end

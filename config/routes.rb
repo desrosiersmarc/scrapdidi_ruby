@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # get '/basket', to: 'pages#basket'
 
-  get '/cart/cheque', to: 'pages#cheque'
-  get '/cart/virement', to: 'pages#virement'
-  get '/cart/especes', to: 'pages#especes'
+  get '/cart/check', to: 'pages#check'
+  get '/cart/transfer', to: 'pages#transfer'
+  get '/cart/cash', to: 'pages#cash'
 
   get '/categories/*id' => 'categories#show'
 
