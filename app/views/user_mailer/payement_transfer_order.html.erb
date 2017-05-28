@@ -6,11 +6,15 @@
 <ul>
   <li>N° commande : <%= @current_order.id %></li>
   <li>Montant total : <%= helper_price(@current_order.total) %></li>
-  <li>Mode de paiement : En ligne</li>
+  <li>Mode de paiement : Chèque</li>
   <li>Mode de livraison : <%= Delivery.find(@current_order.delivery_id).name %></li>
 </ul>
 
-<p>Nous vous informerons de l’expédition de votre commande.</p>
+<p>Et les informations pour effectuer le virement bancaire :</p>
+<ul>
+  <li>XXX</li>
+</ul>
+<p>Nous informerons de l’expédition de votre commande dès réception du paiement.</p>
 <p>Merci de votre confiance et à bientôt.</p>
 
 <%= render 'gabarit_footer' %>
