@@ -9,7 +9,8 @@
 
 .card {
   img {
-    width: 95%;
+    max-width: 95%;
+    max-height: 170px;
   }
   height: 322px;
   border: solid 1px grey;
@@ -18,6 +19,7 @@
   border-radius: 3px;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   background-color: #FFF;
 }
 
