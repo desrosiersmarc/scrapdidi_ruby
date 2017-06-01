@@ -61,12 +61,19 @@
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="search-bar">
-          <form action="" class="navbar-wagon-search">
+<!--           <form action="" class="navbar-wagon-search">
             <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
             <button type="submit" class="navbar-wagon-search-btn">
               <i class="fa fa-search"></i>
             </button>
-          </form>
+          </form> -->
+          <%= simple_form_for :search, url:results_path, method: :get do |f| %>
+            <div class="search-area">
+              <%= f.input :search_word, label: false, class: "navbar-wagon-search-input", placeholder: "rechercher"  %>
+              <%= f.button :submit, "...", class: 'navbar-wagon-search-btn' %>
+              <span class='navbar-wagon-search-btn' id='span-search'><i class="fa fa-search"></i></span>
+              </div>
+            <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-3">

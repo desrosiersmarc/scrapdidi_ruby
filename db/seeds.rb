@@ -122,7 +122,9 @@ print "Create Order Status"
 puts ": ok"
 puts "Create Users"
   User.delete_all
-  create_account = User.new(email: 'md@md.com', password: '123soleil')
+  create_account = User.new(email: 'mdesrosiers@norauto.com', password: '123soleil')
+  create_account.save
+  create_account = User.new(email: 'scrapdidi@gmail.com', password: '123diesel')
   create_account.save
 puts "User #{create_account.email} is created"
 
