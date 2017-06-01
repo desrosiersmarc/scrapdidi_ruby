@@ -14,9 +14,11 @@
 
         <div class="col-xs-12">
           <div class="links-footer">
-            <a href="">Mentions légales | </a>
-            <a href="">Conditions générales de ventes | </a>
-            <a href="">En cas de litiges</a>
+            <%= link_to "Mentions légales", legal_path  %>
+            |
+            <%= link_to "Conditions générales de ventes", cgv_path %>
+            |
+            <a href="http://ec.europa.eu/consumers/odr" target='_blank'>En cas de litiges</a>
           </div>
         </div>
 

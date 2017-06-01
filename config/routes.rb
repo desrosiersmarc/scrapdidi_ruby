@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/cart/transfer', to: 'pages#transfer'
   get '/cart/cash', to: 'pages#cash'
   get 'results', to: 'pages#results'
+  get 'cgv', to: 'pages#cgv'
+  get 'legal', to: 'pages#legal'
+
 
   get '/categories/*id' => 'categories#show'
 
