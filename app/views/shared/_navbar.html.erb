@@ -68,9 +68,11 @@
             </button>
           </form> -->
           <%= simple_form_for :search, url:results_path, method: :get do |f| %>
-            <%= f.input :search_word, label: false, class: "navbar-wagon-search-input", placeholder: "Seach..."  %>
-            <i class="fa fa-search"></i>
-            <%= f.button :submit, "Chercher", class: 'btn btn-danger' %>
+            <div class="search-area">
+              <%= f.input :search_word, label: false, class: "navbar-wagon-search-input", placeholder: "rechercher"  %>
+              <%= f.button :submit, "...", class: 'navbar-wagon-search-btn' %>
+              <span class='navbar-wagon-search-btn' id='span-search'><i class="fa fa-search"></i></span>
+              </div>
             <% end %>
         </div>
       </div>
