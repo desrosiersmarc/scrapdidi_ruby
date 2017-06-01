@@ -1,4 +1,12 @@
 class Product < ApplicationRecord
+
+  include PgSearch
+  pg_search_scope :search_by_name_and_description,
+    against: [:name, :description],
+    associated_against: {
+      brand: [:name]
+    }
+
   belongs_to :supplier
   belongs_to :brand
   belongs_to :category
@@ -25,6 +33,7 @@ class Product < ApplicationRecord
   has_attachments :photos, maximum: 4
 
   default_scope { where(active: true)}
+
 end
 
 

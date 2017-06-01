@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <h4><%= @products.count %> produit(s) trouvé(s) pour le mot clé '<%= @search_word %>'</h4>
+    <% @products.each do |product|%>
+        <%= render "products/product_card", product: product, order_item: @order_item %>
+    <% end %>
+  </div>
+</div>

@@ -25,4 +25,10 @@ class PagesController < ApplicationController
     UserMailer.payement_cash_order(current_user, current_order).deliver_now
   end
 
+  def results
+    @search_word = params[:search][:search_word]
+    @products = Product.search_by_name_and_description(@search_word)
+    @order_item = current_order.order_items.new
+  end
+
 end

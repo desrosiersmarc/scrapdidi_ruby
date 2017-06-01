@@ -38,6 +38,9 @@ gem 'bootstrap-datepicker-rails'
 #for email
 gem "letter_opener", group: :development
 
+#for pg_search
+gem 'pg_search'
+
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
