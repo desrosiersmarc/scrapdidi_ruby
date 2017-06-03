@@ -5,9 +5,9 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="S'incrire à la newsletter">
+            <input type="text" class="form-control" value="S'incrire à la newsletter" readonly="true">
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="button">Ok</button>
+            <%= link_to "ok", new_user_registration_path, class: "btn btn-primary"  %>
             </span>
           </div>
         </div>
