@@ -28,7 +28,17 @@
         <%= simple_form_for @order_item, remote: true do |f| %>
           <%= f.hidden_field :quantity, value: 1 %>
           <%= f.hidden_field :product_id, value: @product.id %>
-          <%= f.submit "Ajouter au panier", class: "btn btn-primary btn-block add-basket-alert", id:@product.name %>
+
+            <% if @product.stock > 0 %>
+              <%= f.submit "Ajouter au panier", class: "btn btn-primary btn-block add-basket-alert", id:@product.name %>
+            <% else %>
+              <p class="btn btn-block btn-warning">
+                Produit indisponible pour le moment
+              </p>
+            <% end %>
+
+
+
         <% end %>
       </p>
     </div>
