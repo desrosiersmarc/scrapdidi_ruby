@@ -23,6 +23,7 @@ def create
   redirect_to order_path(@order)
 
     UserMailer.payement_online_order(current_user, current_order).deliver_now
+    current_order.stock_update
 rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_order_payment_path(@order)

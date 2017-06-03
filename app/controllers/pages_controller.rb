@@ -15,14 +15,17 @@ class PagesController < ApplicationController
 
   def check
     UserMailer.payement_check_order(current_user, current_order).deliver_now
+    current_order.stock_update
   end
 
   def transfer
     UserMailer.payement_transfer_order(current_user, current_order).deliver_now
+    current_order.stock_update
   end
 
   def cash
     UserMailer.payement_cash_order(current_user, current_order).deliver_now
+    current_order.stock_update
   end
 
   def results
