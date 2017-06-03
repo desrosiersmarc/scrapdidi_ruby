@@ -40,6 +40,18 @@ class Order < ApplicationRecord
     Delivery.find(self.delivery_id).name
   end
 
+  def stock_update
+    self.order_items.each do |order_item|
+      product = Product.find(order_item.product_id)
+      product.stock = product.stock - order_item.quantity
+      product.save
+    end
+
+    # for each order_items in order
+    # product.stock = product.stock - order_items.quanity
+    # product.save
+  end
+
 private
   def set_order_status
     self.order_status_id = 1
