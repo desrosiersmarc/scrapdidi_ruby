@@ -22,7 +22,7 @@ class Order < ApplicationRecord
 
   def shipping_price
     if !self.delivery_id.nil?
-      (Delivery.all.where("min_weight < ?", total_weight)
+      (Delivery.all.where("min_weight <= ?", total_weight)
                                 .where("? <= max_weight", total_weight)
                                 .where("name = ?", order_delivery_name)
                                 .first
