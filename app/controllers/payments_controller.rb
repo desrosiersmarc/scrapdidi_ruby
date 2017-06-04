@@ -24,6 +24,7 @@ def create
 
     UserMailer.payement_online_order(current_user, current_order).deliver_now
     current_order.stock_update
+    session[:order_id] = nil
 rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_order_payment_path(@order)

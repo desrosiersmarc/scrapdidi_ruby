@@ -46,10 +46,6 @@ class Order < ApplicationRecord
       product.stock = product.stock - order_item.quantity
       product.save
     end
-
-    # for each order_items in order
-    # product.stock = product.stock - order_items.quanity
-    # product.save
   end
 
 private
