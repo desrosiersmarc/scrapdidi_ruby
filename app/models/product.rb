@@ -33,7 +33,7 @@ class Product < ApplicationRecord
 
   has_attachments :photos, maximum: 4
 
-  default_scope { where(active: true)}
+  #default_scope { where(active: true)}
 
 end
 

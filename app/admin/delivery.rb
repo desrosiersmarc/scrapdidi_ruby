@@ -1,4 +1,4 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register Delivery do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -13,9 +13,13 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
-  permit_params :name, :sku, :state, :supplier, :brand,
-                :purchasing_price, :coefficient, :discount_rate,
-                :price, :weight, :stock, :description, :home,
-                :category, :active
+  index do
+    selectable_column
+    column :name
+    column :min_weight
+    column :max_weight
+    column :price
+    actions
+  end
 
 end
