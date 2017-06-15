@@ -13,10 +13,5 @@ ActiveAdmin.register OrderItem do
 #   permitted
 # end
 
-  index do
-    selectable_column
-    column :order_id
-
-  end
 
 end

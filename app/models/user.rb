@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :products, through: :carts
-  has_many :carts
+  #has_many :products, through: :carts
+  #has_many :carts
   #Add to tests
+  has_many :orders
   has_many :order_items, through: :orders
 end
