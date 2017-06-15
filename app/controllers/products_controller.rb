@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @products = Product.all
+    @products = Product.all.where(active: true)
     @order_item = current_order.order_items.new
   end
 
