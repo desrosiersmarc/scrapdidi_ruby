@@ -16,18 +16,21 @@ class PagesController < ApplicationController
   def check
     UserMailer.payement_check_order(current_user, current_order).deliver_now
     current_order.stock_update
+    current_order.update( order_status_id: 2)
     session[:order_id] = nil
   end
 
   def transfer
     UserMailer.payement_transfer_order(current_user, current_order).deliver_now
     current_order.stock_update
+    current_order.update( order_status_id: 2)
     session[:order_id] = nil
   end
 
   def cash
     UserMailer.payement_cash_order(current_user, current_order).deliver_now
     current_order.stock_update
+    current_order.update( order_status_id: 2)
     session[:order_id] = nil
   end
 

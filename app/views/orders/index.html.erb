@@ -62,7 +62,7 @@
 
 <div class="wrapper-news text-center">
   <h2 class="text-center">Commande(s) à traiter  (maxi 5)</h2>
-    <div class="container" id="to_treat">
+    <div class="container">
       <table class="table table-condensed">
         <tr>
           <th class="">Date commande</th>
@@ -76,14 +76,26 @@
           <th class=""></th>
           <th class=""></th>
         </tr>
-<!--  -->
+
+        <% @order_placed.each do |order| %>
+          <tr>
+            <td><%= order.created_at %></td>
+            <td><%= order.id %></td>
+            <td><%= order.user.lastname %></td>
+            <td><%= helper_price(order.total_price_cents) %></td>
+            <td>???</td>
+            <td><%= order.delivery.name %></td>
+            <td><i class="fa fa-search-plus" aria-hidden="true"></i></td>
+          </tr>
+        <% end %>
+
       </table>
     </div>
 </div>
 
 <div class="wrapper-card text-center">
   <h2>Préparation  (maxi 5)</h2>
-  <div class="container" id="in_progress">
+  <div class="container">
       <table class="table table-condensed">
         <tr>
           <th class="">Date commande</th>
@@ -104,7 +116,7 @@
 
 <div class="wrapper-news text-center">
   <h2>En attente  (maxi 5)</h2>
-    <div class="container" id="waiting">
+    <div class="container">
       <table class="table table-condensed">
         <tr>
           <th class="">Date commande</th>
