@@ -41,6 +41,6 @@ class OrdersController < ApplicationController
 
     def params_order
       params["order"]["delivery_id"] = params["shippingSelected"].to_i
-      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price, :user_id )
+      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price, :user_id, :payment_type )
     end
 end
