@@ -1,0 +1,25 @@
+.features-card {
+  background-color: #EEE;
+  color: $blue;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #AAA;
+  padding: 15px 0;
+  margin: 15px;
+  height: 130px;
+  i {
+    color: $pink-dark;
+    font-size: 40px;
+  }
+}
+
+.wrapper-news {
+  background-color: #f3cfd9;
+}
+
+.wrapper-news h2 {
+color: #CE1483;
+}
+
+.wrapper-card h2 {
+  color: #CE1483;
+}

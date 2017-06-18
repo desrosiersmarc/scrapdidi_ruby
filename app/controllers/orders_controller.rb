@@ -6,6 +6,15 @@ class OrdersController < ApplicationController
     @order = Order.where(order_status_id: 2).find(params[:id])
   end
 
+  def index
+    @order_in_progress = Order.all.where(order_status_id: 1)
+    @order_placed = Order.all.where(order_status_id: 2)
+    @order_shipped = Order.all.where(order_status_id: 3)
+    @order_cancelled = Order.all.where(order_status_id: 4)
+    #TODO
+    #@order_pending = Order.all.where(order_status_id: 1)
+  end
+
   def edit
     @current_id = current_user.id
   end
@@ -32,6 +41,6 @@ class OrdersController < ApplicationController
 
     def params_order
       params["order"]["delivery_id"] = params["shippingSelected"].to_i
-      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price, :user_id )
+      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price, :user_id, :payment_type )
     end
 end

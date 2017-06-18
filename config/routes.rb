@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :order_items, only: [:create, :update, :destroy]
-  resources :orders, only: [:show, :edit, :update] do
+  resources :orders, only: [:index, :show, :edit, :update] do
     resources :payments, only: [:new, :create]
   end
 
