@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :update]
   before_action :find_order, only: [:show, :edit, :update]
   before_action :weight_and_deliveries, only: [:edit, :update]
+
   def show
     @order = Order.where(order_status_id: 2).find(params[:id])
   end
@@ -11,6 +12,8 @@ class OrdersController < ApplicationController
     @order_placed = Order.all.where(order_status_id: 2)
     @order_shipped = Order.all.where(order_status_id: 3)
     @order_cancelled = Order.all.where(order_status_id: 4)
+
+    render :layout => "my_layout"
     #TODO
     #@order_pending = Order.all.where(order_status_id: 1)
   end
