@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :order_status
   belongs_to :delivery
   has_many :order_items
+  has_many :products, through: :order_items
 
   validates :cgv, acceptance: {message: "Veuillez accepter les conditions générales de ventes"}
   #validates :customer_message, presence: true

@@ -87,6 +87,13 @@
             <td><%= order.delivery.name %></td>
             <td><i class="fa fa-search-plus" aria-hidden="true"></i></td>
           </tr>
+          <tr>
+            <td colspan="7">
+              <div class="details hide" id=<%= order.id %> >
+                <%= render 'order_detail', {order: order} %>
+              </div>
+            </td>
+          </tr>
         <% end %>
 
       </table>

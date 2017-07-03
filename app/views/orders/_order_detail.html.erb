@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="information-div">
+        Customer information
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="information-div">
+        <p>
+          <strong>N° de commande : ... </strong>
+        </p>
+        <p>
+          Choix du mode de livraison :
+          ...
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="waiting-comment">
+        Motif de mise en attente
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-condensed">
+        <tr>
+          <th>Photo</th>
+          <th>Référence</th>
+          <th>Libellé</th>
+          <th>Prix unitaire</th>
+          <th>Qté</th>
+          <th>Prix total</th>
+          <th>Qté disponible</th>
+          <th>Check</th>
+        </tr>
+        <% order.order_items.each do |oi| %>
+          <tr>
+            <td>photo</td>
+            <td><%= oi.product_id %></td>
+            <td><%= oi.product.name %></td>
+            <td>price</td>
+            <td><%= oi.quantity %></td>
+            <td>Total Price</td>
+            <td>Qté dispo</td>
+            <td></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="buttons-div">
+
+        <form action="order.php" method="post">
+          <input type="hidden"  name="statement" value="2"/>
+          <input type="hidden"  name="idCommande" value= "">
+          <input type="submit" class="btn btn-primary" value="Préparation en cours"/>
+        </form>
+
+        <form action="order.php" method="post">
+          <input type="hidden"  name="statement" value="3"/>
+          <input type="hidden"  name="idCommande" value= "">
+          <input type="submit" class="btn btn-warning" value="Mise en attente"/>
+        </form>
+
+        <form action="order.php" method="post">
+          <input type="hidden"  name="statement" value="4"/>
+          <input type="hidden"  name="idCommande" value= "">
+          <input type="submit" class="btn btn-success" value="Expédiée"/>
+        </form>
+
+        <form action="order.php" method="post">
+          <input type="hidden"  name="statement" value="5"/>
+          <input type="hidden"  name="idCommande" value= "">
+          <input type="submit" class="btn btn-danger" value="Annuler"/>
+        </form>
+
+
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <table class="table table-condensed">
+        <tr>
+          <th>Produit</th>
+          <th>Prix</th>
+        </tr>
+        <tr>
+          <td>Livraison</td>
+          <td>... €</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>
+            ...
+            €
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="comment-div">
+        <form action="order_detail.php" method="post">
+          <div class="container">
+            <div class="row">
+              <div class="comment-button">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label for="commentsOrder">Commentaires</label>
+                    <textarea class="form-control" name="comments" id="commentsOrder">
+                      customer comment
+                    </textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-info btn-block btn-lg">
+                    Mettre à jour
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

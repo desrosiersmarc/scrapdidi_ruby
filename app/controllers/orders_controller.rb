@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   before_action :weight_and_deliveries, only: [:edit, :update]
 
   def show
-    @order = Order.where(order_status_id: 2).find(params[:id])
+    # @order = Order.where(order_status_id: 2).find(params[:id])
+    @order = Order.find(1023)
   end
 
   def index
