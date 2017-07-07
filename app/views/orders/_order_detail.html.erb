@@ -2,7 +2,22 @@
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div class="information-div">
-        Customer information
+        <p>
+          <%= order.user.firstname %>
+          <%= order.user.lastname %>
+        </p>
+        <p>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <%= order.user.address %>
+        </p>
+        <p>
+          <i class="fa fa-mobile" aria-hidden="true"></i>
+          <%= order.user.mobil_phone %>
+        </p>
+        <p>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <%= order.user.email %>
+        </p>
       </div>
     </div>
     <div class="col-xs-12 col-md-6">

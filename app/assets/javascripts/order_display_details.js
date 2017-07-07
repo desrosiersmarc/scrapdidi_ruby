@@ -6,7 +6,7 @@ $(document).ready(function(){
     if ($(oi_text).hasClass('hide')) {
       $(oi_text).removeClass('hide');
       $(oi_text).hide();
-      $(oi_text).slideDown(3000);
+      $(oi_text).slideDown();
 
     } else {
       $(oi_text).slideUp();
