@@ -23,11 +23,11 @@
     <div class="col-xs-12 col-md-6">
       <div class="information-div">
         <p>
-          <strong>N° de commande : ... </strong>
+          <strong>N° de commande : <%= order.id %> </strong>
         </p>
         <p>
           Choix du mode de livraison :
-          ...
+          <%= order.delivery.name %>
         </p>
       </div>
     </div>
@@ -62,10 +62,16 @@
             <td>photo</td>
             <td><%= oi.product_id %></td>
             <td><%= oi.product.name %></td>
-            <td>price</td>
+            <td>
+              <%= helper_price(oi.product.price) %>
+            </td>
             <td><%= oi.quantity %></td>
-            <td>Total Price</td>
-            <td>Qté dispo</td>
+            <td>
+              <%= helper_price(oi.product.price * oi.quantity) %>
+            </td>
+            <td>
+              <%= oi.product.stock %>
+            </td>
             <td></td>
           </tr>
         <% end %>
@@ -113,13 +119,14 @@
         </tr>
         <tr>
           <td>Livraison</td>
-          <td>... €</td>
+          <td>
+            <%= order.delivery.price %> €
+          </td>
         </tr>
         <tr>
           <td>Total</td>
           <td>
-            ...
-            €
+            <%= helper_price(order.total_price_cents) %>
           </td>
         </tr>
       </table>
