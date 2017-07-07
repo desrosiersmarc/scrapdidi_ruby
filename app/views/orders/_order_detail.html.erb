@@ -59,7 +59,9 @@
         </tr>
         <% order.order_items.each do |oi| %>
           <tr>
-            <td>photo</td>
+            <td class="picture-order">
+              <%= helper_picture_tag(oi.product) %>
+            </td>
             <td><%= oi.product_id %></td>
             <td><%= oi.product.name %></td>
             <td>
