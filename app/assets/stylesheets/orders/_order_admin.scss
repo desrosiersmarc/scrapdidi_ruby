@@ -23,3 +23,60 @@ color: #CE1483;
 .wrapper-card h2 {
   color: #CE1483;
 }
+
+.wrapper-header {
+  background-color:#CE1483;
+  color: #FFF;
+  font-size: 20px;
+}
+
+.details {
+  background-color: #FFF;
+}
+
+td.picture-order {
+  img {
+    height: 70px;
+  }
+}
+
+
+/// TODO Clear css code below
+.information-div, .waiting-comment {
+  background-color: #EEE;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #AAA;
+  padding: 15px;
+  margin: 15px;
+}
+
+.information-div {
+  height: 170px;
+}
+
+.buttons-div {
+  height: 115px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button-css {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.information-div p {
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+}
+
+.waiting-comment p{
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+}
+
+.comment-button {
+  display: flex;
+  align-items: center;
+}

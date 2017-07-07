@@ -11,5 +11,6 @@
 // = require add_basket
 //= require bootstrap-datepicker
 //= require datepicker_param
+//= require order_display_details.js
 
 
