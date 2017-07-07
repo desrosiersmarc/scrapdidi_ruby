@@ -10,9 +10,10 @@ class OrdersController < ApplicationController
 
   def index
     @order_in_progress = Order.all.where(order_status_id: 1)
-    @order_placed = Order.all.where(order_status_id: 2)
-    @order_shipped = Order.all.where(order_status_id: 3)
-    @order_cancelled = Order.all.where(order_status_id: 4)
+    @order_payed = Order.all.where(order_status_id: 2)
+    @order_in_preparation = Order.all.where(order_status_id: 3)
+    @order_shipped = Order.all.where(order_status_id: 4)
+    @order_pending = Order.all.where(order_status_id: 5)
 
     render :layout => "my_layout"
     #TODO
