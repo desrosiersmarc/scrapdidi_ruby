@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :update]
-  before_action :find_order, only: [:show, :edit, :update]
+  before_action :find_order, only: [:show, :edit, :update, :index]
   before_action :weight_and_deliveries, only: [:edit, :update]
 
   def show
     @order = Order.where(order_status_id: 2).find(params[:id])
-    # @order = Order.find(1023)
   end
 
   def index
@@ -46,6 +45,12 @@ class OrdersController < ApplicationController
 
     def params_order
       params["order"]["delivery_id"] = params["shippingSelected"].to_i
-      params.require(:order).permit(:delivery_id, :customer_message, :cgv, :total_price, :user_id, :payment_type )
+      params.require(:order).permit(:delivery_id,
+                                    :customer_message,
+                                    :cgv,
+                                    :total_price,
+                                    :user_id,
+                                    :payment_type,
+                                    :order_status_id )
     end
 end
