@@ -53,6 +53,7 @@ class Order < ApplicationRecord
 private
   def set_order_status
     self.order_status_id = 1
+    # self.delivery_id = 0
   end
 
   def update_subtotal
