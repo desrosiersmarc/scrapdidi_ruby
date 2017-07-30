@@ -14,11 +14,31 @@ class UserMailer < ApplicationMailer
     @order_items = order_items
     @current_order = current_order
     mail(to: user.email,
-          subject: "[ScrapDidi] Confirmation de votre commande")
+          subject: "[ScrapDidi] Confirmation de votre commande n°#{@current_order.id}")
   end
 
-  def preparation_order
-    mail to: "to@example.org"
+  def preparation_order (user, order_items, current_order)
+    @user = user
+    @order_items = order_items
+    @current_order = current_order
+    mail(to: user.email,
+          subject: "[ScrapDidi] Confirmation de votre commande n°#{@current_order.id}")
+  end
+
+  def shipping_order (user, order_items, current_order)
+    @user = user
+    @order_items = order_items
+    @current_order = current_order
+    mail(to: user.email,
+          subject: "[ScrapDidi] Confirmation de votre commande n°#{@current_order.id}")
+  end
+
+    def cancelling_order (user, order_items, current_order)
+    @user = user
+    @order_items = order_items
+    @current_order = current_order
+    mail(to: user.email,
+          subject: "[ScrapDidi] Confirmation de votre commande n°#{@current_order.id}")
   end
 
   def payement_online_order(user, current_order)

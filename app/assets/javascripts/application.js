@@ -12,5 +12,6 @@
 //= require bootstrap-datepicker
 //= require datepicker_param
 //= require order_display_details.js
+//= require admin_menu.js
 
 

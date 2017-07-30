@@ -88,22 +88,22 @@
 
         <%= simple_form_for order, remote: true do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 3} %>
-          <%= f.submit "Préapration en cours", class: "btn btn-primary" %>
+          <%= f.submit "Préapration en cours", class: "btn btn-primary btn-admin" %>
         <% end %>
 
         <%= simple_form_for order, remote: true do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 5} %>
-          <%= f.submit "Mise en attente", class: "btn btn-warning" %>
+          <%= f.submit "Mise en attente", class: "btn btn-warning btn-admin" %>
         <% end %>
 
         <%= simple_form_for order, remote: true do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 4} %>
-          <%= f.submit "Expédiée", class: "btn btn-success" %>
+          <%= f.submit "Expédiée", class: "btn btn-success btn-admin" %>
         <% end %>
 
         <%= simple_form_for order, remote: true do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 6} %>
-          <%= f.submit "Annuler", class: "btn btn-danger" %>
+          <%= f.submit "Annuler", class: "btn btn-danger btn-admin" %>
         <% end %>
 
 
@@ -143,7 +143,7 @@
                   <div class="form-group">
                     <label for="commentsOrder">Commentaires</label>
                     <textarea class="form-control" name="comments" id="commentsOrder">
-                      customer comment
+                      <%= order.customer_message %>
                     </textarea>
                   </div>
                 </div>
