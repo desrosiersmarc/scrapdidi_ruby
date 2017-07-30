@@ -1,5 +1,17 @@
-<h1>User#preparation_order</h1>
+<%= render 'gabarit_header' %>
+
+<h><%= @user.firstname %>,</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/preparation_order.html.erb
+  Votre commande est en cours de préparation..
 </p>
+<p>
+  Nous vous ferons parvenir un email quand nous expéridons la commande.
+</p>
+<p>
+  Bonne journée
+</p>
+<%= render "carts/shopping_cart_mail" %>
+
+<%= render 'gabarit_footer' %>
+

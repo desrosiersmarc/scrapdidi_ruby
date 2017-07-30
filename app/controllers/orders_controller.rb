@@ -28,9 +28,18 @@ class OrdersController < ApplicationController
     @order.total_price = @order.total_price_calculated / 100
     @order.delivery_id = params["shippingSelected"].to_i if params["shippingSelected"]
     if @order.update(params_order)
-        if @order.order_status_id == 1
-          redirect_to new_order_payment_path(@order)
-        end
+        case @order.order_status_id
+          when 1
+            redirect_to new_order_payment_path(@order)
+          when 3
+            UserMailer.preparation_order(@order.user, @order.order_items, @order).deliver_now
+          when 4
+            UserMailer.shipping_order(@order.user, @order.order_items, @order).deliver_now
+          when 5
+            UserMailer.pending_order(@order.user, @order.order_items, @order).deliver_now
+          when 6
+            UserMailer.cancelling_order(@order.user, @order.order_items, @order).deliver_now
+          end
     else
       render :edit, notice: "Il y a un problème"
     end

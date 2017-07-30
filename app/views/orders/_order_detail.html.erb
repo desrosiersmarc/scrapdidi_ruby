@@ -86,22 +86,22 @@
     <div class="col-xs-12 col-md-8">
       <div class="buttons-div">
 
-        <%= simple_form_for order, remote: true do |f| %>
+        <%= simple_form_for order, remote: false do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 3} %>
           <%= f.submit "Préapration en cours", class: "btn btn-primary" %>
         <% end %>
 
-        <%= simple_form_for order, remote: true do |f| %>
+        <%= simple_form_for order, remote: false do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 5} %>
           <%= f.submit "Mise en attente", class: "btn btn-warning" %>
         <% end %>
 
-        <%= simple_form_for order, remote: true do |f| %>
+        <%= simple_form_for order, remote: false do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 4} %>
           <%= f.submit "Expédiée", class: "btn btn-success" %>
         <% end %>
 
-        <%= simple_form_for order, remote: true do |f| %>
+        <%= simple_form_for order, remote: false do |f| %>
           <%= f.input :order_status_id, as: :hidden, input_html: {value: 6} %>
           <%= f.submit "Annuler", class: "btn btn-danger" %>
         <% end %>
