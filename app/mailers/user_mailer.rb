@@ -6,6 +6,7 @@ class UserMailer < ApplicationMailer
   end
 
   def send_order
+    @user = User.first
     mail(to: @user.email, subject: "Our order n°")
   end
 
