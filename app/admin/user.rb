@@ -25,6 +25,7 @@ ActiveAdmin.register User do
     column :loyalty
     column :last_sign_in_at
     column :created_at
+    column :admin
   end
 
 
