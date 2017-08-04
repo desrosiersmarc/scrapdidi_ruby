@@ -50,14 +50,15 @@
         </p>
       </div>
     <% end %>
-
-    <%= link_to cart_cash_path do %>
-      <div class="col-xs-12 col-sm-6">
-        <p class="btn-payement">
-          <i class="fa fa-money" aria-hidden="true"></i>
-          Espèce
-        </p>
-      </div>
+    <% if @order.delivery.price > 0 %>
+      <%= link_to cart_cash_path do %>
+        <div class="col-xs-12 col-sm-6">
+          <p class="btn-payement">
+            <i class="fa fa-money" aria-hidden="true"></i>
+            Espèce
+          </p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
