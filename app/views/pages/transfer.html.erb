@@ -7,12 +7,8 @@
   <div class="row">
     <h3>Virement bancaire</h3>
     <hr>
-    <b>Vous avez choisi le paiement à la livraison. Voici un bref récapitulatif de votre commande</b>
-    <ul>
-      <li>Le montant de votre commande s'éléve à <%= helper_price(current_order.subtotal + current_order.shipping_price) %> € TTC</li>
-      <li>Nous acceptons la devise suivante pour votre paiement : Euro</li>
-      <li>Merci de confirmer votre commande en cliquant sur "Je confirme ma commande"</li>
-    </ul>
+    <p>Nous vous remercions pour votre commande, vous allez recevoir un email avec les instructions vous permettant de réaliser le virement.</p>
+    <p>A bientôt</p>
     <%= link_to "Retour à la boutique", root_path, class: "btn btn-block btn-primary" %>
   </div>
 </div>

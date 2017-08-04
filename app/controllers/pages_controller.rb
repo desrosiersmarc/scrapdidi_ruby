@@ -17,6 +17,7 @@ class PagesController < ApplicationController
     UserMailer.payement_check_order(current_user, current_order).deliver_now
     current_order.stock_update
     current_order.update( order_status_id: 2, payment_type: 'Chéque')
+    @order = Order.find(current_order)
     session[:order_id] = nil
   end
 
@@ -31,6 +32,7 @@ class PagesController < ApplicationController
     UserMailer.payement_cash_order(current_user, current_order).deliver_now
     current_order.stock_update
     current_order.update( order_status_id: 2, payment_type: 'Espèces')
+    @order = Order.find(current_order)
     session[:order_id] = nil
   end
 
